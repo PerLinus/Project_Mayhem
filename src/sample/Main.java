@@ -21,6 +21,7 @@ public class Main extends Application {
         System.out.println("Hello World!");
         System.out.println("Hello Team!");
         System.out.println("Simon här!");
+        System.out.println("Fruktjuice!");
         launch(args);
     }
 }
