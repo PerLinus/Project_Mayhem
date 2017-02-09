@@ -99,7 +99,12 @@ INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)
 INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)VALUES(104, '2017-02-17', '2017-03-17', '3000', '3500');
 
 -- Skapa Customer
-
+INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Bruce', 'Wayne', '0707572626', 'imNotBatman@forReal.com', 'Wayne Mansion', 'Gotham', '66666');
+INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Peter', 'Parker', '0721112223', 'Mj@ever.com', 'Queens Av7', 'New York', '95423');
+INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Clark', 'Kent', '0707554845', 'Cryptonite@hate.com', 'Crystal Palace 1', 'Metropolis', '74554');
+INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Charles', 'Xavier', '0744444445', 'ProffX@Xman.com', 'X-Mansion', 'Wachington', '15452');
+INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Lex', 'Luthor', '0725416852', 'Ihatesuper@man.com', 'LexStreet', 'Metropolis', '22154');
+INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Tor', 'Odensson', '0707522222', 'Mjolnir@hammer.com', 'VikingLane4', 'Valhalla', '78723');
 
 -- Skapa Customer_Bid
 INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 302, '25500', '2017-02-04');
