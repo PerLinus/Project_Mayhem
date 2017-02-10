@@ -37,7 +37,20 @@ DELIMITER ;
 
 CALL Create_Auction (105,'2017-02-17', 3000, 4500);
 
-Use project_mayhem;
+-- test - end
+
+-- Lista pågående auktioner samt kunna se det högsta budet och vilken kund
+-- som lagt det.
+
+CREATE VIEW current_auctions AS
+
+  SELECT Product.Product_Name, MAX(Customer_Bid.Bid) AS Bid , Customer.First_Name, Customer.Last_Name
+  FROM Customer
+    INNER JOIN Customer_Bid ON Customer.Customer_ID = Customer_Bid.Customer_ID
+    INNER JOIN Auction ON Customer_Bid.Auction_ID = Auction.Auction_ID
+    INNER JOIN Product ON Auction.Product_ID = Product.Product_ID
+  GROUP BY Product.Product_Name
+  ORDER BY Customer_Bid.Bid DESC;
 
 -- Se budhistoriken på en viss auktion, samt vilka kunder som lagt buden
 SELECT
