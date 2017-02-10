@@ -131,13 +131,12 @@ INSERT INTO auction_history VALUES (291, 96, 204, 527, '2016-03-27 20:28:29', '2
 INSERT INTO auction_history VALUES (292, 97, 204, 10000, '2016-01-25 23:15:15', '2016-01-18', '2016-01-26', 5000, 15000 );
 INSERT INTO auction_history VALUES (293, 94, 203, 25, '2016-03-05 17:19:48', '2016-03-01', '2016-03-06', 20, 35 );
 
--- Fråga 5
+-- Vilka auktioner avslutas under ett visst datumintervall? Samt vad blir
+-- provisionen för varje auktion inom det intervallet?
 DROP PROCEDURE IF EXISTS Ended_Auctions;
 DELIMITER //
-
 CREATE PROCEDURE Ended_Auctions(IN mStart_Date DATE, IN mEnd_Date DATE)
     BEGIN
-
         SELECT
             Auction_History.Start_Date,
             Auction_History.End_Date,
@@ -148,8 +147,29 @@ CREATE PROCEDURE Ended_Auctions(IN mStart_Date DATE, IN mEnd_Date DATE)
             INNER JOIN Product ON Auction_History.Product_ID = Product.Product_ID
         WHERE Auction_History.Start_Date AND Auction_History.End_Date BETWEEN mStart_Date AND mEnd_Date
         GROUP BY Start_Date, End_Date, Date_Sold, Final_Bid;
-
     END //
 DELIMITER ;
 
-CALL Ended_Auctions('2016-01-01', '2016-12-12');
+-- Registrera en produkt
+DROP PROCEDURE IF EXISTS Register_one_product;
+DELIMITER //
+CREATE PROCEDURE Register_one_product(IN In_Supplier_ID INT, IN In_Product_Name VARCHAR(100), IN In_Commission DOUBLE,In_Entry_Date DATETIME, In_Info TEXT)
+  BEGIN
+    INSERT INTO product (Supplier_ID, Product_Name, Commission, Entry_Date, Info) values (In_Supplier_ID ,In_Product_Name,In_Commission,In_Entry_Date,In_Info);
+    SELECT * FROM Product
+    ORDER BY Entry_Date DESC LIMIT 1;
+  END//
+DELIMITER ;
+
+-- Skapa en auktion utifrån en viss produkt där man kan sätta utgångspris,
+-- acceptpris samt start och slutdatum för auktionen.
+
+DROP PROCEDURE IF EXISTS Create_Auction;
+DELIMITER //
+CREATE PROCEDURE Create_Auction(IN In_Product_ID INT, IN In_Start_Date DATE, IN In_Start_Price DOUBLE,In_Accept_Price DOUBLE)
+  BEGIN
+    INSERT INTO auction (Product_ID, Start_Date, End_Date, Start_Price, Accept_Price) values (In_Supplier_ID ,In_Product_Name,In_Commission,In_Entry_Date,In_Info);
+    SELECT * FROM auction
+    ORDER BY Start_Date ASC LIMIT 1;
+  END//
+DELIMITER ;
