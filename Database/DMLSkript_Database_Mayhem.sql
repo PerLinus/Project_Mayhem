@@ -70,10 +70,10 @@ ORDER BY Customer_Bid.Bid_Date DESC;
 
 -- Vad den totala provisionen är per månad.
 
-SELECT MONTHNAME(Auction_History.Date_Sold) AS Month, SUM(Product.Commission * Auction_History.Final_Bid) AS Commission FROM Product
+SELECT YEAR(Auction_History.Date_Sold) AS Year, MONTHNAME(Auction_History.Date_Sold) AS Month, SUM(Product.Commission * Auction_History.Final_Bid) AS Commission FROM Product
   INNER JOIN Auction_History ON product.Product_ID = auction_history.Product_ID
 GROUP BY Month
-ORDER BY Commission;
+ORDER BY Year, Month;
 
 --  Visa en kundlista på alla kunder som köpt något, samt vad deras totala
 -- ordervärde är.
