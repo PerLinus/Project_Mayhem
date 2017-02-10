@@ -103,7 +103,7 @@ DO
       SELECT auction.Auction_ID,auction.Product_ID,customer_bid.Customer_ID,MAX(customer_bid.Bid) AS MaxBid,
         customer_bid.Bid_Date, auction.Start_Date, auction.End_Date, auction.Start_Price, Accept_Price FROM auction
         LEFT JOIN customer_bid ON customer_bid.Auction_ID = auction.Auction_ID
-      WHERE auction.End_Date < now()
+      WHERE auction.End_Date < '2017-03-01'
       GROUP BY auction.Auction_ID;
 
     DELETE FROM auction WHERE auction.Auction_ID IN (SELECT auction_history.Auction_ID FROM auction_history);

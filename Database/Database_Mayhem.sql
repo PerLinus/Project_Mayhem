@@ -88,6 +88,9 @@ AS
     FROM Auction_History
     WHERE Auction_History.Final_Bid IS NULL;
 
+SELECT * FROM Unsold_Products_View;
+SELECT * FROM Auction_History;
+
 -- Skapa Supplier
 INSERT INTO Supplier(Company_Name, Address, Zip_Code, City, Phone_Number, Email)VALUES('Bus & Båg', 'Frejgatan 43', '11384', 'Stockholm', '070-6785423', 'busbag@hotmail.com');
 INSERT INTO Supplier(Company_Name, Address, Zip_Code, City, Phone_Number, Email)VALUES('FiskeRederiet', 'Avenyn 3', '41821', 'Göteborg', '076-2598341', 'luktafisk@gmail.com');
@@ -142,20 +145,37 @@ INSERT INTO auction_history VALUES (293, 94, 203, 25, '2016-03-05 17:19:48', '20
 
 -- Vilka auktioner avslutas under ett visst datumintervall? Samt vad blir
 -- provisionen för varje auktion inom det intervallet?
-DROP PROCEDURE IF EXISTS Ended_Auctions;
+DROP PROCEDURE IF EXISTS Est_Auction_Report;
 DELIMITER //
-CREATE PROCEDURE Ended_Auctions(IN mStart_Date DATE, IN mEnd_Date DATE)
+CREATE PROCEDURE Est_Auction_Report(IN mStart_Date DATE, IN mEnd_Date DATE)
     BEGIN
-        SELECT
-            Auction_History.Start_Date,
-            Auction_History.End_Date,
-            Auction_History.Date_Sold,
-            Auction_History.Final_Bid,
-            SUM(Auction_History.Final_Bid * (Product.Commission / 100)) AS Comission
-        FROM Auction_History
-            INNER JOIN Product ON Auction_History.Product_ID = Product.Product_ID
-        WHERE Auction_History.Start_Date AND Auction_History.End_Date BETWEEN mStart_Date AND mEnd_Date
-        GROUP BY Start_Date, End_Date, Date_Sold, Final_Bid;
+
+        (SELECT
+             Auction_History.Start_Date,
+             Auction_History.End_Date,
+             Auction_History.Date_Sold,
+             Auction_History.Final_Bid,
+             SUM(Auction_History.Final_Bid * (Product.Commission / 100)) AS Comission
+         FROM Auction_History
+             INNER JOIN Product ON Auction_History.Product_ID = Product.Product_ID
+         WHERE Auction_History.Start_Date AND Auction_History.End_Date BETWEEN mStart_Date AND mEnd_Date
+         GROUP BY Start_Date, End_Date, Date_Sold, Final_Bid
+         ORDER BY Start_Date DESC )
+        UNION
+        (SELECT
+             Auction.Start_Date,
+             Auction.End_Date,
+             'Unsold',
+             'Unsold',
+             SUM(Customer_Bid.Bid * Product.Commission / 100) AS Comission
+         FROM Auction
+             INNER JOIN Customer_Bid ON Auction.Auction_ID = Customer_Bid.Auction_ID
+             INNER JOIN Product ON Auction.Product_ID = Product.Product_ID
+         WHERE Auction.Start_Date AND Auction.End_Date BETWEEN mStart_Date AND mEnd_Date
+         GROUP BY Start_Date, End_Date
+         ORDER BY Start_Date DESC )
+        ;
+
     END //
 DELIMITER ;
 
