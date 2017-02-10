@@ -1,8 +1,7 @@
 
 Use project_mayhem;
 
--- registrera en produkt
-
+-- Registrera en produkt
 
 DROP PROCEDURE IF EXISTS Register_one_product;
 
@@ -33,7 +32,7 @@ CREATE PROCEDURE Create_Auction(IN In_Product_ID INT, IN In_Start_Date DATE, IN 
   END//
 DELIMITER ;
 
--- test
+-- Test Create_Auction
 
 CALL Create_Auction (105,'2017-02-17', 3000, 4500);
 
@@ -72,7 +71,6 @@ SELECT MONTHNAME(Auction_History.Date_Sold) AS Month, SUM(Product.Commission * A
   INNER JOIN Auction_History ON product.Product_ID = auction_history.Product_ID
 GROUP BY Month
 ORDER BY Commission;
-
 
 --  Visa en kundlista på alla kunder som köpt något, samt vad deras totala
 -- ordervärde är.
