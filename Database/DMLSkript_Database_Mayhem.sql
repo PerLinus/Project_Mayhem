@@ -25,7 +25,14 @@ GROUP BY Month
 ORDER BY Commission;
 
 --  Visa en kundlista på alla kunder som köpt något, samt vad deras totala
--- ordervärde är.
-SELECT customer.Customer_ID, First_Name, Last_Name, sum(Final_Bid) AS TotalSales FROM customer
-  INNER JOIN auction_history ON customer.Customer_ID = auction_history.Customer_ID
-GROUP BY auction_history.Customer_ID;
+-- ordervärde är (som vy)
+
+DROP VIEW IF EXISTS CustomerHistory;
+
+CREATE VIEW CustomerHistory
+AS
+  SELECT customer.Customer_ID, First_Name, Last_Name, sum(Final_Bid) AS TotalSales FROM customer
+    INNER JOIN auction_history ON customer.Customer_ID = auction_history.Customer_ID
+  GROUP BY auction_history.Customer_ID;
+
+SELECT * FROM CustomerHistory;
