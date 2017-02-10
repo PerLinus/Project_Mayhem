@@ -51,6 +51,9 @@ CREATE VIEW current_auctions AS
   GROUP BY Product.Product_Name
   ORDER BY Customer_Bid.Bid DESC;
 
+-- test current_auctions
+SELECT * FROM current_auctions;
+
 -- Se budhistoriken på en viss auktion, samt vilka kunder som lagt buden
 SELECT
   Auction.Auction_ID,
