@@ -92,9 +92,8 @@ INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALU
 INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('3', 'Fax', 10, '2017-02-09 09:44:01', 'En av Sveriges största och snabbaste faxmaskiner.');
 INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('4', 'Ugn', 10, '2017-01-29 20:04:51', '10-årig ugn som var med och vann Bak-SM 2011.');
 INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('5', 'Svetsmaskin', 10, '2017-02-01 06:32:58', 'Sjukt bra svets, säljer för att ha råd till frimafesten i mars.');
-
-INSERT INTO Product(Product_ID, Supplier_ID, Product_Name, Commission, Entry_Date, Info) VALUES (105, '1', 'Ståltunna', 5, '2016-01-01', 'En rustik tunna i plåt.');
-INSERT INTO Product(Product_ID, Supplier_ID, Product_Name, Commission, Entry_Date, Info) VALUES (106, '1', 'Fiskespö', 10, '2016-01-02', 'Fint gammalt fiskespö med inbyggd fiskelycka.');
+INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info) VALUES ('1', 'Ståltunna', 5, '2016-01-01', 'En rustik tunna i plåt.');
+INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info) VALUES ('1', 'Fiskespö', 10, '2016-01-02', 'Fint gammalt fiskespö med inbyggd fiskelycka.');
 
 -- Skapa Auction
 INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)VALUES(100, '2017-02-20', '2017-03-20', '4000', '7000');
