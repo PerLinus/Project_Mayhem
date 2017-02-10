@@ -77,6 +77,8 @@ CREATE TABLE Customer_Bid
 );
 ALTER TABLE `Customer_Bid` AUTO_INCREMENT = 400;
 
+SELECT * FROM Customer_Bid;
+
 -- Skapa Supplier
 INSERT INTO Supplier(Company_Name, Address, Zip_Code, City, Phone_Number, Email)VALUES('Bus & Båg', 'Frejgatan 43', '11384', 'Stockholm', '070-6785423', 'busbag@hotmail.com');
 INSERT INTO Supplier(Company_Name, Address, Zip_Code, City, Phone_Number, Email)VALUES('FiskeRederiet', 'Avenyn 3', '41821', 'Göteborg', '076-2598341', 'luktafisk@gmail.com');
@@ -107,10 +109,11 @@ INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City,
 INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Tor', 'Odensson', '0707522222', 'Mjolnir@hammer.com', 'VikingLane4', 'Valhalla', '78723');
 
 -- Skapa Customer_Bid
-INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 302, '25500', '2017-02-04');
-INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(201, 303, '6500', '2017-02-03');
-INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(202, 302, '26000', '2017-02-09');
-INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(203, 303, '8000', '2017-02-09');
+INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 302, '25500', '2017-02-04 19:05:37');
+INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 303, '6500', '2017-02-03 23:24:01');
+INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 302, '26000', '2017-02-09 07:45:05');
+INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 303, '8000', '2017-02-09 14:36:24');
+
 
 
 
