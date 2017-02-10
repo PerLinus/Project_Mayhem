@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 
-
-<BorderPane fx:controller="controllers.MainWindowController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainWindowController">
+   <children>
+      <HBox>
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="Add">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Add Supplier" />
+                        <MenuItem mnemonicParsing="false" text="Add Customer" />
+                        <MenuItem mnemonicParsing="false" text="Add Product" />
+                        <MenuItem mnemonicParsing="false" text="Add Auction" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="View">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Ongoing Auctions" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Reports">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Commission Forecast" />
+                        <MenuItem mnemonicParsing="false" text="Customer Purchase List" />
+                        <MenuItem mnemonicParsing="false" text="Earned Commission" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+   </padding>
+</Pane>
