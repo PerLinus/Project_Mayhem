@@ -56,7 +56,7 @@ CREATE TABLE Auction_History
     Product_ID INT NOT NULL,
     Customer_ID INT,
     Final_Bid DOUBLE UNSIGNED,
-    Date_Sold DATE,
+    Date_Sold DATETIME,
     Start_Date DATE NOT NULL,
     End_Date DATE NOT NULL,
     Start_Price DOUBLE UNSIGNED NOT NULL,
@@ -123,12 +123,12 @@ INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 303,
 
 
 -- Skapa Auction_History
-INSERT INTO Auction_History(Auction_ID, Product_ID, Customer_ID, Final_Bid, Date_Sold, Start_Date, End_Date, Start_Price, Accept_Price) VALUES (98, 105, 200, 100, '2016-02-01', '2016-01-05', '2016-02-01', 25, 100);
-INSERT INTO Auction_History(Auction_ID, Product_ID, Customer_ID, Final_Bid, Date_Sold, Start_Date, End_Date, Start_Price, Accept_Price) VALUES (99, 106, 200, 250, '2016-02-05', '2016-01-22', '2016-02-22', 100, 250);
-INSERT INTO auction_history VALUES (290, 95, 203, 2054, '2016-01-15', '2016-01-12', '2016-01-18', 1000, 2500 );
-INSERT INTO auction_history VALUES (291, 96, 204, 527, '2016-03-27', '2016-03-06', '2016-03-30', 500, 600 );
-INSERT INTO auction_history VALUES (292, 97, 204, 10000, '2016-01-25', '2016-01-18', '2016-01-26', 5000, 15000 );
-INSERT INTO auction_history VALUES (293, 94, 203, 25, '2016-03-05', '2016-03-01', '2016-03-06', 20, 35 );
+INSERT INTO Auction_History(Auction_ID, Product_ID, Customer_ID, Final_Bid, Date_Sold, Start_Date, End_Date, Start_Price, Accept_Price) VALUES (98, 105, 200, 100, '2016-02-01 09:15:17', '2016-01-05', '2016-02-01', 25, 100);
+INSERT INTO Auction_History(Auction_ID, Product_ID, Customer_ID, Final_Bid, Date_Sold, Start_Date, End_Date, Start_Price, Accept_Price) VALUES (99, 106, 200, 250, '2016-02-05 13:00:00', '2016-01-22', '2016-02-22', 100, 250);
+INSERT INTO auction_history VALUES (290, 95, 203, 2054, '2016-01-15 14:15:06', '2016-01-12', '2016-01-18', 1000, 2500 );
+INSERT INTO auction_history VALUES (291, 96, 204, 527, '2016-03-27 20:28:29', '2016-03-06', '2016-03-30', 500, 600 );
+INSERT INTO auction_history VALUES (292, 97, 204, 10000, '2016-01-25 23:15:15', '2016-01-18', '2016-01-26', 5000, 15000 );
+INSERT INTO auction_history VALUES (293, 94, 203, 25, '2016-03-05 17:19:48', '2016-03-01', '2016-03-06', 20, 35 );
 
 -- Fråga 5
 DROP PROCEDURE IF EXISTS Ended_Auctions;
