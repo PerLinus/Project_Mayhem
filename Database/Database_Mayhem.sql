@@ -93,6 +93,9 @@ INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALU
 INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('4', 'Ugn', 10, '2017-01-29 20:04:51', '10-årig ugn som var med och vann Bak-SM 2011.');
 INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('5', 'Svetsmaskin', 10, '2017-02-01 06:32:58', 'Sjukt bra svets, säljer för att ha råd till frimafesten i mars.');
 
+INSERT INTO Product(Product_ID, Supplier_ID, Product_Name, Commission, Entry_Date, Info) VALUES (105, '1', 'Ståltunna', 5, '2016-01-01', 'En rustik tunna i plåt.');
+INSERT INTO Product(Product_ID, Supplier_ID, Product_Name, Commission, Entry_Date, Info) VALUES (106, '1', 'Fiskespö', 10, '2016-01-02', 'Fint gammalt fiskespö med inbyggd fiskelycka.');
+
 -- Skapa Auction
 INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)VALUES(100, '2017-02-20', '2017-03-20', '4000', '7000');
 INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)VALUES(101, '2017-02-24', '2017-03-24', '75000', '89999');
@@ -100,13 +103,14 @@ INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)
 INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)VALUES(103, '2017-01-28', '2017-02-28', '6000', '15000');
 INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)VALUES(104, '2017-02-17', '2017-03-17', '3000', '3500');
 
+
 -- Skapa Customer
-INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Bruce', 'Wayne', '0707572626', 'imNotBatman@forReal.com', 'Wayne Mansion', 'Gotham', '66666');
-INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Peter', 'Parker', '0721112223', 'Mj@ever.com', 'Queens Av7', 'New York', '95423');
-INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Clark', 'Kent', '0707554845', 'Cryptonite@hate.com', 'Crystal Palace 1', 'Metropolis', '74554');
-INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Charles', 'Xavier', '0744444445', 'ProffX@Xman.com', 'X-Mansion', 'Wachington', '15452');
-INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Lex', 'Luthor', '0725416852', 'Ihatesuper@man.com', 'LexStreet', 'Metropolis', '22154');
-INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUE ('Tor', 'Odensson', '0707522222', 'Mjolnir@hammer.com', 'VikingLane4', 'Valhalla', '78723');
+INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUES ('Bruce', 'Wayne', '0707572626', 'imNotBatman@forReal.com', 'Wayne Mansion', 'Gotham', '66666');
+INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUES ('Peter', 'Parker', '0721112223', 'Mj@ever.com', 'Queens Av7', 'New York', '95423');
+INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUES ('Clark', 'Kent', '0707554845', 'Cryptonite@hate.com', 'Crystal Palace 1', 'Metropolis', '74554');
+INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUES ('Charles', 'Xavier', '0744444445', 'ProffX@Xman.com', 'X-Mansion', 'Wachington', '15452');
+INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUES ('Lex', 'Luthor', '0725416852', 'Ihatesuper@man.com', 'LexStreet', 'Metropolis', '22154');
+INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUES ('Tor', 'Odensson', '0707522222', 'Mjolnir@hammer.com', 'VikingLane4', 'Valhalla', '78723');
 
 -- Skapa Customer_Bid
 INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 302, '25500', '2017-02-04 19:05:37');
@@ -115,6 +119,6 @@ INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 302,
 INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 303, '8000', '2017-02-09 14:36:24');
 
 
-
-
-
+-- Skapa Auction_History
+INSERT INTO Auction_History(Auction_ID, Product_ID, Customer_ID, Final_Bid, Date_Sold, Start_Date, End_Date, Start_Price, Accept_Price) VALUES (98, 105, 200, 100, '2016-02-01', '2016-01-05', '2016-02-01', 25, 100);
+INSERT INTO Auction_History(Auction_ID, Product_ID, Customer_ID, Final_Bid, Date_Sold, Start_Date, End_Date, Start_Price, Accept_Price) VALUES (99, 106, 200, 250, '2016-02-05', '2016-01-22', '2016-02-22', 100, 250);
