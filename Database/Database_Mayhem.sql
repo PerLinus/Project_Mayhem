@@ -77,7 +77,16 @@ CREATE TABLE Customer_Bid
 );
 ALTER TABLE `Customer_Bid` AUTO_INCREMENT = 400;
 
-SELECT * FROM Customer_Bid;
+CREATE VIEW Unsold_Products_View
+AS
+    SELECT
+        Auction_History.Auction_ID,
+        Auction_History.Product_ID,
+        Auction_History.Start_Date,
+        Auction_History.End_Date,
+        Auction_History.Start_Price
+    FROM Auction_History
+    WHERE Auction_History.Final_Bid IS NULL;
 
 -- Skapa Supplier
 INSERT INTO Supplier(Company_Name, Address, Zip_Code, City, Phone_Number, Email)VALUES('Bus & Båg', 'Frejgatan 43', '11384', 'Stockholm', '070-6785423', 'busbag@hotmail.com');
