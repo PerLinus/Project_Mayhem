@@ -163,7 +163,6 @@ DELIMITER ;
 
 -- Skapa en auktion utifrån en viss produkt där man kan sätta utgångspris,
 -- acceptpris samt start och slutdatum för auktionen.
-
 DROP PROCEDURE IF EXISTS Create_Auction;
 DELIMITER //
 CREATE PROCEDURE Create_Auction(IN In_Product_ID INT, IN In_Start_Date DATE, IN In_Start_Price DOUBLE,In_Accept_Price DOUBLE)
