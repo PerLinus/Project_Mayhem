@@ -82,3 +82,27 @@ AS
   SELECT customer.Customer_ID, First_Name, Last_Name, sum(Final_Bid) AS TotalSales FROM customer
     INNER JOIN auction_history ON customer.Customer_ID = auction_history.Customer_ID
   GROUP BY auction_history.Customer_ID;
+
+-- När en auktion är avslutad och det finns en köpare så skall auktionen flyttas till en
+-- auktionshistoriktabell
+
+SET GLOBAL EVENT_SCHEDULER = ON;
+
+
+CREATE EVENT end_of_auction
+  ON SCHEDULE EVERY '1' DAY
+  STARTS CURRENT_DATE
+DO
+  BEGIN
+
+
+    INSERT INTO auction_history (Auction_ID,Product_ID,Customer_ID,Final_Bid,Date_Sold,Start_Date,End_Date,Start_Price,Accept_Price)
+      SELECT auction.Auction_ID,auction.Product_ID,customer_bid.Customer_ID,MAX(customer_bid.Bid) AS MaxBid,
+        customer_bid.Bid_Date, auction.Start_Date, auction.End_Date, auction.Start_Price, Accept_Price FROM auction
+        LEFT JOIN customer_bid ON customer_bid.Auction_ID = auction.Auction_ID
+      WHERE auction.End_Date < now()
+      GROUP BY auction.Auction_ID;
+
+    DELETE FROM auction WHERE auction.Auction_ID IN (SELECT auction_history.Auction_ID FROM auction_history);
+
+  END;
