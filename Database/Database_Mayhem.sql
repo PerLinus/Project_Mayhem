@@ -122,3 +122,26 @@ INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 303,
 -- Skapa Auction_History
 INSERT INTO Auction_History(Auction_ID, Product_ID, Customer_ID, Final_Bid, Date_Sold, Start_Date, End_Date, Start_Price, Accept_Price) VALUES (98, 105, 200, 100, '2016-02-01', '2016-01-05', '2016-02-01', 25, 100);
 INSERT INTO Auction_History(Auction_ID, Product_ID, Customer_ID, Final_Bid, Date_Sold, Start_Date, End_Date, Start_Price, Accept_Price) VALUES (99, 106, 200, 250, '2016-02-05', '2016-01-22', '2016-02-22', 100, 250);
+
+-- Fråga 5
+DROP PROCEDURE IF EXISTS Ended_Auctions;
+DELIMITER //
+
+CREATE PROCEDURE Ended_Auctions(IN mStart_Date DATE, IN mEnd_Date DATE)
+    BEGIN
+
+        SELECT
+            Auction_History.Start_Date,
+            Auction_History.End_Date,
+            Auction_History.Date_Sold,
+            Auction_History.Final_Bid,
+            SUM(Auction_History.Final_Bid * (Product.Commission / 100)) AS Comission
+        FROM Auction_History
+            INNER JOIN Product ON Auction_History.Product_ID = Product.Product_ID
+        WHERE Auction_History.Start_Date AND Auction_History.End_Date BETWEEN mStart_Date AND mEnd_Date
+        GROUP BY Start_Date, End_Date, Date_Sold, Final_Bid;
+
+    END //
+DELIMITER ;
+
+CALL Ended_Auctions('2016-01-01', '2016-12-12');
