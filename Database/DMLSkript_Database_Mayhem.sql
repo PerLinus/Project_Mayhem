@@ -18,8 +18,8 @@ DELIMITER ;
 
 CALL Register_one_product(1, 'Portabel högtalare av BOSE', 10, '2017-01-10 09:13:37', 'Om du vill att hela stranden ska lyssna på din musik!');
 
--- Skapa en auk-on u-från en viss produkt där man kan sä5a utgångspris,
--- acceptpris samt start och slutdatum för auk-onen.
+-- Skapa en auktion utifrån en viss produkt där man kan sätta utgångspris,
+-- acceptpris samt start och slutdatum för auktionen.
 
 DROP PROCEDURE IF EXISTS Create_Auction;
 
@@ -35,7 +35,7 @@ DELIMITER ;
 
 -- test
 
-CALL Create_Auction (105,'2017-02-17', 3000, 4500)s
+CALL Create_Auction (105,'2017-02-17', 3000, 4500);
 
 Use project_mayhem;
 
