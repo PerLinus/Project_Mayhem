@@ -33,6 +33,8 @@ CREATE PROCEDURE Create_Auction(IN In_Product_ID INT, IN In_Start_Date DATE, IN 
   END//
 DELIMITER ;
 
+-- test
+
 CALL Create_Auction (105,'2017-02-17', 3000, 4500)s
 
 Use project_mayhem;
