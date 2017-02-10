@@ -98,6 +98,7 @@ INSERT INTO Product VALUES (95, 1, 'Våningsäng', 0.10, '2016-01-01', 'Fin vån
 INSERT INTO Product VALUES (96, 2, 'GungStol', 0.10, '2016-03-05', 'Stol med inbygd gungfunktion' );
 INSERT INTO Product VALUES (97, 1, 'Amiga600', 0.10, '2016-01-16', 'Det senaste inom dator från 89' );
 INSERT INTO Product VALUES (94, 2, 'Snus', 0.10, '2016-01-27', 'En halvfull dosa Göteborgs Rape (White Large)' );
+INSERT INTO Product VALUES (93, 2, 'SCigg', 0.10, '2016-01-27', 'En halvfull dosa Göteborgs Rape (White Large)' );
 
 -- Skapa Auction
 INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)VALUES(100, '2017-02-20', '2017-03-20', '4000', '7000');
@@ -105,7 +106,7 @@ INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)
 INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)VALUES(102, '2017-01-11', '2017-02-11', '25000', '27000');
 INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)VALUES(103, '2017-01-28', '2017-02-28', '6000', '15000');
 INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)VALUES(104, '2017-02-17', '2017-03-17', '3000', '3500');
-
+INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)VALUES(93, '2016-02-17', '2016-03-17', '3000', '3500');
 
 -- Skapa Customer
 INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUES ('Bruce', 'Wayne', '0707572626', 'imNotBatman@forReal.com', 'Wayne Mansion', 'Gotham', '66666');
