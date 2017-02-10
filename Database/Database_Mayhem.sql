@@ -87,13 +87,17 @@ INSERT INTO Supplier(Company_Name, Address, Zip_Code, City, Phone_Number, Email)
 INSERT INTO Supplier(Company_Name, Address, Zip_Code, City, Phone_Number, Email)VALUES('StålAB', 'Järngatan 82', '80124', 'Gävle', '026-526341', 'stal@hotmail.com');
 
 -- Skapa Product
-INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('1', 'Platt-TV', 10, '2017-01-09 15:05:24', 'Fin platt-TV, inget kvitto finns.');
-INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('2', 'Fiskebåt', 10, '2017-01-12 11:07:51', 'Fin båt men flyter tyvärr inte.');
-INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('3', 'Fax', 10, '2017-02-09 09:44:01', 'En av Sveriges största och snabbaste faxmaskiner.');
-INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('4', 'Ugn', 10, '2017-01-29 20:04:51', '10-årig ugn som var med och vann Bak-SM 2011.');
-INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('5', 'Svetsmaskin', 10, '2017-02-01 06:32:58', 'Sjukt bra svets, säljer för att ha råd till frimafesten i mars.');
-INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info) VALUES ('1', 'Ståltunna', 5, '2016-01-01', 'En rustik tunna i plåt.');
-INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info) VALUES ('1', 'Fiskespö', 10, '2016-01-02', 'Fint gammalt fiskespö med inbyggd fiskelycka.');
+INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('1', 'Platt-TV', 0.10, '2017-01-09 15:05:24', 'Fin platt-TV, inget kvitto finns.');
+INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('2', 'Fiskebåt', 0.10, '2017-01-12 11:07:51', 'Fin båt men flyter tyvärr inte.');
+INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('3', 'Fax', 0.10, '2017-02-09 09:44:01', 'En av Sveriges största och snabbaste faxmaskiner.');
+INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('4', 'Ugn', 0.10, '2017-01-29 20:04:51', '10-årig ugn som var med och vann Bak-SM 2011.');
+INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info)VALUES('5', 'Svetsmaskin', 0.10, '2017-02-01 06:32:58', 'Sjukt bra svets, säljer för att ha råd till frimafesten i mars.');
+INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info) VALUES ('1', 'Ståltunna', 0.05, '2016-01-01', 'En rustik tunna i plåt.');
+INSERT INTO Product(Supplier_ID, Product_Name, Commission, Entry_Date, Info) VALUES ('1', 'Fiskespö', 0.10, '2016-01-02', 'Fint gammalt fiskespö med inbyggd fiskelycka.');
+INSERT INTO Product VALUES (95, 1, 'Våningsäng', 0.10, '2016-01-01', 'Fin våningsäng från år 1916' );
+INSERT INTO Product VALUES (96, 2, 'GungStol', 0.10, '2016-03-05', 'Stol med inbygd gungfunktion' );
+INSERT INTO Product VALUES (97, 1, 'Amiga600', 0.10, '2016-01-16', 'Det senaste inom dator från 89' );
+INSERT INTO Product VALUES (94, 2, 'Snus', 0.10, '2016-01-27', 'En halvfull dosa Göteborgs Rape (White Large)' );
 
 -- Skapa Auction
 INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price)VALUES(100, '2017-02-20', '2017-03-20', '4000', '7000');
@@ -121,6 +125,10 @@ INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 303,
 -- Skapa Auction_History
 INSERT INTO Auction_History(Auction_ID, Product_ID, Customer_ID, Final_Bid, Date_Sold, Start_Date, End_Date, Start_Price, Accept_Price) VALUES (98, 105, 200, 100, '2016-02-01', '2016-01-05', '2016-02-01', 25, 100);
 INSERT INTO Auction_History(Auction_ID, Product_ID, Customer_ID, Final_Bid, Date_Sold, Start_Date, End_Date, Start_Price, Accept_Price) VALUES (99, 106, 200, 250, '2016-02-05', '2016-01-22', '2016-02-22', 100, 250);
+INSERT INTO auction_history VALUES (290, 95, 203, 2054, '2016-01-15', '2016-01-12', '2016-01-18', 1000, 2500 );
+INSERT INTO auction_history VALUES (291, 96, 204, 527, '2016-03-27', '2016-03-06', '2016-03-30', 500, 600 );
+INSERT INTO auction_history VALUES (292, 97, 204, 10000, '2016-01-25', '2016-01-18', '2016-01-26', 5000, 15000 );
+INSERT INTO auction_history VALUES (293, 94, 203, 25, '2016-03-05', '2016-03-01', '2016-03-06', 20, 35 );
 
 -- Fråga 5
 DROP PROCEDURE IF EXISTS Ended_Auctions;

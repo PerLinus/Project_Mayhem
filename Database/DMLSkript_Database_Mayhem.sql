@@ -58,4 +58,12 @@ ORDER BY Customer_Bid.Bid_Date DESC;
 SELECT MONTHNAME(Auction_History.Date_Sold) AS 'Month', SUM(Product.Commission * Auction_History.Final_Bid) AS Commission FROM Product
   INNER JOIN Auction_History ON Auction_History.Product_ID = Product.Product_ID
 GROUP BY 'Month'
-ORDER BY 'Month';
+ORDER BY Commission;
+
+
+--  Visa en kundlista på alla kunder som köpt något, samt vad deras totala
+-- ordervärde är.
+
+SELECT customer.Customer_ID, First_Name, Last_Name, sum(Final_Bid) AS TotalSales FROM customer
+  INNER JOIN auction_history ON customer.Customer_ID = auction_history.Customer_ID
+GROUP BY auction_history.Customer_ID;
