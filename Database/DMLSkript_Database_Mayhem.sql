@@ -109,3 +109,26 @@ DO
     DELETE FROM auction WHERE auction.Auction_ID IN (SELECT auction_history.Auction_ID FROM auction_history);
 
   END;
+
+-- trigger som lägger över sålda auctions med acceptpris till auction history
+
+DROP TRIGGER IF EXISTS SoldWithAcceptPrice;
+
+DELIMITER //
+
+CREATE TRIGGER SoldWithAcceptPrice AFTER INSERT ON customer_bid
+  FOR EACH ROW
+  BEGIN
+    IF new.Bid >= (SELECT max(auction.Accept_Price) FROM auction INNER JOIN customer_bid ON auction.Auction_ID = customer_bid.Auction_ID) THEN
+      INSERT INTO auction_history (Auction_ID,Product_ID,Customer_ID,Final_Bid,Date_Sold,Start_Date,End_Date,Start_Price,Accept_Price)
+      SELECT auction.Auction_ID,auction.Product_ID,customer_bid.Customer_ID,new.Bid AS MaxBid,
+        customer_bid.Bid_Date, auction.Start_Date, auction.End_Date, auction.Start_Price, Accept_Price FROM auction
+        INNER JOIN customer_bid ON new.Auction_ID = auction.Auction_ID
+        WHERE new.Bid >= auction.Accept_Price
+      GROUP BY auction.Auction_ID;
+
+    END IF;
+
+  END //
+
+DELIMITER ;
