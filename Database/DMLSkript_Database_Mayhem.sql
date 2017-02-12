@@ -110,7 +110,7 @@ DO
 
   END;
 
--- trigger som lägger över sålda auctions med acceptpris till auction history
+-- trigger som lägger över sålda auctions med acceptpris till auction_history
 
 DROP TRIGGER IF EXISTS SoldWithAcceptPrice;
 
