@@ -85,7 +85,7 @@ public class MainWindowController {
 
     public void openCommissonForecast(ActionEvent actionEvent) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../views/commissionListSample.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../views/commissionForecastSample.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Commission Forecast");
             stage.setScene(new Scene(root, 600, 400));
@@ -110,10 +110,10 @@ public class MainWindowController {
         }
     }
 
-    public void openCommissionListSample(ActionEvent actionEvent) {
+    public void openCommissionPerMonthList(ActionEvent actionEvent) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../views/commissionListSample.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../views/commissionForecastSample.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Earned Commission");
             stage.setScene(new Scene(root, 600, 400));

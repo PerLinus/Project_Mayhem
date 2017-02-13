@@ -30,7 +30,7 @@
                   <items>
                     <MenuItem mnemonicParsing="false" text="Commission Forecast" onAction="#openCommissonForecast" />
                         <MenuItem mnemonicParsing="false" text="Customer Purchase List" onAction="#openCustomerPurchaseList"/>
-                        <MenuItem mnemonicParsing="false" text="Earned Commission" onAction="#openCommissionListSample"/>
+                        <MenuItem mnemonicParsing="false" text="Earned Commission" onAction="#openCommissionPerMonthList"/>
                   </items>
                 </Menu>
               </menus>
