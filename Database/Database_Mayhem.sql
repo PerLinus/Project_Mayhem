@@ -155,7 +155,7 @@ CREATE PROCEDURE Est_Auction_Report(IN mStart_Date DATE, IN mEnd_Date DATE)
              Auction_History.End_Date,
              Auction_History.Date_Sold,
              Auction_History.Final_Bid,
-             SUM(Auction_History.Final_Bid * (Product.Commission / 100)) AS Comission
+             SUM(Auction_History.Final_Bid * (Product.Commission)) AS Comission
          FROM Auction_History
              INNER JOIN Product ON Auction_History.Product_ID = Product.Product_ID
          WHERE Auction_History.Start_Date AND Auction_History.End_Date BETWEEN mStart_Date AND mEnd_Date
@@ -167,7 +167,7 @@ CREATE PROCEDURE Est_Auction_Report(IN mStart_Date DATE, IN mEnd_Date DATE)
              Auction.End_Date,
              'Unsold',
              'Unsold',
-             SUM(Customer_Bid.Bid * Product.Commission / 100) AS Comission
+             SUM(Customer_Bid.Bid * Product.Commission) AS Comission
          FROM Auction
              INNER JOIN Customer_Bid ON Auction.Auction_ID = Customer_Bid.Auction_ID
              INNER JOIN Product ON Auction.Product_ID = Product.Product_ID
