@@ -156,9 +156,9 @@ DELIMITER ;
 
 -- Skapa en auktion utifrån en viss produkt där man kan sätta utgångspris,
 -- acceptpris samt start och slutdatum för auktionen.
-DROP PROCEDURE IF EXISTS Create_Auction;
+DROP PROCEDURE IF EXISTS Create_auction;
 DELIMITER //
-CREATE PROCEDURE Create_Auction(IN In_Product_ID INT, IN In_Start_Date DATE, IN In_Start_Price DOUBLE,In_Accept_Price DOUBLE)
+CREATE PROCEDURE Create_auction(IN In_Product_ID INT, IN In_Start_Date DATE, IN In_Start_Price DOUBLE,In_Accept_Price DOUBLE)
   BEGIN
     INSERT INTO auction (Product_ID, Start_Date, End_Date, Start_Price, Accept_Price) values (In_Supplier_ID ,In_Product_Name,In_Commission,In_Entry_Date,In_Info);
     SELECT * FROM auction
@@ -169,7 +169,7 @@ DELIMITER ;
 
 -- Lista pågående auktioner samt kunna se det högsta budet och vilken kund
 -- som lagt det.
-CREATE VIEW list_ongoing_auctions AS
+CREATE VIEW List_ongoing_auctions AS
 
   SELECT Product.Product_Name, MAX(Customer_Bid.Bid) AS Bid , Customer.First_Name, Customer.Last_Name
   FROM Customer
@@ -195,9 +195,9 @@ ORDER BY Customer_Bid.Bid_Date DESC;
 
 -- Vilka auktioner avslutas under ett visst datumintervall? Samt vad blir
 -- provisionen för varje auktion inom det intervallet?
-DROP PROCEDURE IF EXISTS Est_Auction_Report;
+DROP PROCEDURE IF EXISTS Est_auction_report;
 DELIMITER //
-CREATE PROCEDURE Est_Auction_Report(IN mStart_Date DATE, IN mEnd_Date DATE)
+CREATE PROCEDURE Est_auction_report(IN mStart_Date DATE, IN mEnd_Date DATE)
   BEGIN
 
     (SELECT
@@ -235,7 +235,7 @@ DELIMITER ;
 -- auktionshistoriktabell
 SET GLOBAL EVENT_SCHEDULER = ON;
 
-CREATE EVENT end_of_auction
+CREATE EVENT End_of_auction
   ON SCHEDULE EVERY '1' DAY
   STARTS CURRENT_DATE
 DO
@@ -254,20 +254,20 @@ DO
 
 -- Visa en kundlista på alla kunder som köpt något, samt vad deras totala
 -- ordervärde är.
-DROP VIEW IF EXISTS CustomerHistory;
+DROP VIEW IF EXISTS Customer_history;
 
-CREATE VIEW CustomerHistory
+CREATE VIEW Customer_history
 AS
   SELECT customer.Customer_ID, First_Name, Last_Name, sum(Final_Bid) AS TotalPurchases FROM customer
     INNER JOIN auction_history ON customer.Customer_ID = auction_history.Customer_ID
   GROUP BY auction_history.Customer_ID;
 
 -- Trigger som lägger över sålda auctions med acceptpris till auction_history
-DROP TRIGGER IF EXISTS SoldWithAcceptPrice;
+DROP TRIGGER IF EXISTS Sold_with_accept_price;
 
 DELIMITER //
 
-CREATE TRIGGER SoldWithAcceptPrice AFTER INSERT ON customer_bid
+CREATE TRIGGER Sold_with_accept_price AFTER INSERT ON customer_bid
 FOR EACH ROW
   BEGIN
     IF new.Bid >= (SELECT max(auction.Accept_Price) FROM auction INNER JOIN customer_bid ON auction.Auction_ID = customer_bid.Auction_ID) THEN
@@ -283,3 +283,14 @@ FOR EACH ROW
   END //
 
 DELIMITER ;
+
+-- Vad den totala provisionen är per månad.
+DROP VIEW IF EXISTS Commission_per_month_view;
+
+CREATE VIEW Commission_per_month_view
+AS
+
+SELECT YEAR(Auction_History.Date_Sold) AS Year, MONTHNAME(Auction_History.Date_Sold) AS Month, SUM(Product.Commission * Auction_History.Final_Bid) AS Commission FROM Product
+  INNER JOIN Auction_History ON product.Product_ID = auction_history.Product_ID
+GROUP BY Month
+ORDER BY Year, Month;

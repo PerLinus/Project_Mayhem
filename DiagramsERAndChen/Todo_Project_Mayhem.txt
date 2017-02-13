@@ -4,3 +4,4 @@ Todo Project Mayhem
 - Fixa ordning på textfields
 - Fixa est_auction_report
 - Felhantering ofyllda TextField
+- Korrigera datumfält i Add auction GUI
