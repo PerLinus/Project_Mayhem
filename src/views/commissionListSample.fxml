@@ -29,10 +29,9 @@
             <Label layoutX="142.0" layoutY="15.0" text="Commission forecast" />
             <TableView layoutY="51.0" prefHeight="348.0" prefWidth="416.0">
               <columns>
-                <TableColumn prefWidth="105.0" text="Auction" />
-                <TableColumn prefWidth="105.0" text="Product name" />
-                  <TableColumn prefWidth="105.0" text="End date" />
-                  <TableColumn prefWidth="100.0" text="Commission" />
+                <TableColumn prefWidth="140.0" text="Product name" />
+                  <TableColumn prefWidth="140.0" text="End date" />
+                  <TableColumn prefWidth="140.0" text="Commission" />
               </columns>
             </TableView>
          </children></AnchorPane>

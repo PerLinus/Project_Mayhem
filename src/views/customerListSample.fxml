@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
 
 
-<BorderPane fx:controller="controllers.CustomerListController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerListController">
+   <children>
+      <TableView layoutX="1.0" layoutY="56.0" prefHeight="342.0" prefWidth="600.0">
+        <columns>
+            <TableColumn prefWidth="70.0" text="ID" />
+          <TableColumn prefWidth="175.0" text="First name" />
+            <TableColumn prefWidth="175.0" text="Last name" />
+          <TableColumn prefWidth="180.0" text="Total Purchases" />
+        </columns>
+      </TableView>
+      <Label layoutX="222.0" layoutY="25.0" text="Total sale per Customer" />
+   </children>
+</Pane>
