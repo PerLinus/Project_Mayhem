@@ -19,7 +19,7 @@ CREATE TABLE Product
     Supplier_ID INT NOT NULL,
     Product_Name VARCHAR(100) NOT NULL,
     Commission DOUBLE NOT NULL,
-    Entry_Date DATETIME NOT NULL,
+    Entry_Date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     Info TEXT,
     FOREIGN KEY (Supplier_ID) REFERENCES Supplier(Supplier_ID)
 );
