@@ -15,7 +15,7 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("../views/addSupplierSample.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Add Supplier");
-            stage.setScene(new Scene(root, 800, 600));
+            stage.setScene(new Scene(root, 600, 400));
             stage.show();
         }catch (Exception e) {
            e.printStackTrace();
@@ -70,6 +70,45 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("../views/ongoingAuctionsSample.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Ongoing Auctions");
+            stage.setScene(new Scene(root, 800, 600));
+            stage.show();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void openCommissonForecast(ActionEvent actionEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../views/commissionListSample.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Commission Forecast");
+            stage.setScene(new Scene(root, 800, 600));
+            stage.show();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openCustomerPurchaseList(ActionEvent actionEvent) {
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../views/customerListSample.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Customer Purchase List");
+            stage.setScene(new Scene(root, 800, 600));
+            stage.show();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openCommissionListSample(ActionEvent actionEvent) {
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../views/commissionListSample.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Earned Commission");
             stage.setScene(new Scene(root, 800, 600));
             stage.show();
         }catch (Exception e) {

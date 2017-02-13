@@ -28,9 +28,9 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Reports">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Commission Forecast" />
-                        <MenuItem mnemonicParsing="false" text="Customer Purchase List" />
-                        <MenuItem mnemonicParsing="false" text="Earned Commission" />
+                    <MenuItem mnemonicParsing="false" text="Commission Forecast" onAction="#openCommissonForecast" />
+                        <MenuItem mnemonicParsing="false" text="Customer Purchase List" onAction="#openCustomerPurchaseList"/>
+                        <MenuItem mnemonicParsing="false" text="Earned Commission" onAction="#openCommissionListSample"/>
                   </items>
                 </Menu>
               </menus>
