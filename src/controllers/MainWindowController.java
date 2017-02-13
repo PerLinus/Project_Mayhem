@@ -16,6 +16,7 @@ public class MainWindowController {
             Stage stage = new Stage();
             stage.setTitle("Add Supplier");
             stage.setScene(new Scene(root, 600, 400));
+            stage.setResizable(false);
             stage.show();
         }catch (Exception e) {
            e.printStackTrace();
@@ -28,7 +29,8 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("../views/addCustomerSample.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Add Customer");
-            stage.setScene(new Scene(root, 800, 600));
+            stage.setScene(new Scene(root, 600, 400));
+            stage.setResizable(false);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -42,7 +44,8 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("../views/addProductSample.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Add Product");
-            stage.setScene(new Scene(root, 800, 600));
+            stage.setScene(new Scene(root, 600, 400));
+            stage.setResizable(false);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -56,7 +59,8 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("../views/addAuctionSample.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Add Auction");
-            stage.setScene(new Scene(root, 800, 600));
+            stage.setScene(new Scene(root, 600, 400));
+            stage.setResizable(false);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -70,7 +74,8 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("../views/ongoingAuctionsSample.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Ongoing Auctions");
-            stage.setScene(new Scene(root, 800, 600));
+            stage.setScene(new Scene(root, 600, 400));
+            stage.setResizable(false);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -83,7 +88,8 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("../views/commissionListSample.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Commission Forecast");
-            stage.setScene(new Scene(root, 800, 600));
+            stage.setScene(new Scene(root, 600, 400));
+            stage.setResizable(false);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -96,7 +102,8 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("../views/customerListSample.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Customer Purchase List");
-            stage.setScene(new Scene(root, 800, 600));
+            stage.setScene(new Scene(root, 600, 400));
+            stage.setResizable(false);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -109,7 +116,8 @@ public class MainWindowController {
             Parent root = FXMLLoader.load(getClass().getResource("../views/commissionListSample.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Earned Commission");
-            stage.setScene(new Scene(root, 800, 600));
+            stage.setScene(new Scene(root, 600, 400));
+            stage.setResizable(false);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
