@@ -20,3 +20,5 @@ ORDER BY Year, Month;
 
 -- Test Est_Auction_Report
 CALL Est_Auction_Report('2016-01-01', '2017-05-05');
+
+SELECT * FROM supplier;
