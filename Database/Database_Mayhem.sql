@@ -19,7 +19,7 @@ CREATE TABLE Product
     Supplier_ID INT NOT NULL,
     Product_Name VARCHAR(100) NOT NULL,
     Commission DOUBLE NOT NULL,
-    Entry_Date DATETIME NOT NULL,
+    Entry_Date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     Info TEXT,
     FOREIGN KEY (Supplier_ID) REFERENCES Supplier(Supplier_ID)
 );
@@ -198,34 +198,37 @@ ORDER BY Customer_Bid.Bid_Date DESC;
 DROP PROCEDURE IF EXISTS Est_Auction_Report;
 DELIMITER //
 CREATE PROCEDURE Est_Auction_Report(IN mStart_Date DATE, IN mEnd_Date DATE)
-    BEGIN
-        (SELECT
-             Auction_History.Start_Date,
-             Auction_History.End_Date,
-             Auction_History.Date_Sold,
-             Auction_History.Final_Bid,
-             SUM(Auction_History.Final_Bid * (Product.Commission)) AS Comission
-         FROM Auction_History
-             INNER JOIN Product ON Auction_History.Product_ID = Product.Product_ID
-         WHERE Auction_History.Start_Date AND Auction_History.End_Date BETWEEN mStart_Date AND mEnd_Date
-         GROUP BY Start_Date, End_Date, Date_Sold, Final_Bid
-         ORDER BY Start_Date DESC )
-        UNION
-        (SELECT
-             Auction.Start_Date,
-             Auction.End_Date,
-             'Unsold',
-             'Unsold',
-             SUM(Customer_Bid.Bid * Product.Commission) AS Comission
-         FROM Auction
-             INNER JOIN Customer_Bid ON Auction.Auction_ID = Customer_Bid.Auction_ID
-             INNER JOIN Product ON Auction.Product_ID = Product.Product_ID
-         WHERE Auction.Start_Date AND Auction.End_Date BETWEEN mStart_Date AND mEnd_Date
-         GROUP BY Start_Date, End_Date
-         ORDER BY Start_Date DESC )
-        ;
+  BEGIN
 
-    END //
+    (SELECT
+       Auction_History.Start_Date,
+       Auction_History.End_Date,
+       Auction_History.Date_Sold,
+       Auction_History.Final_Bid,
+       SUM(Auction_History.Final_Bid * Product.Commission) AS Comission,
+       Product.Product_Name
+     FROM Auction_History
+       INNER JOIN Product ON Auction_History.Product_ID = Product.Product_ID
+     WHERE Auction_History.Start_Date AND Auction_History.End_Date BETWEEN mStart_Date AND mEnd_Date
+     GROUP BY Commission, Start_Date, End_Date, Date_Sold, Final_Bid, Product.Product_Name
+     ORDER BY Start_Date DESC)
+    UNION
+    (SELECT
+       Auction.Start_Date,
+       Auction.End_Date,
+       'Unsold',
+       'Unsold',
+      -- FIXA FÖR FAN!!!
+       SUM(MAX(Customer_Bid.Bid) * Product.Commission) AS Comission,
+       Product.Product_Name
+     FROM Auction
+       INNER JOIN Customer_Bid ON Auction.Auction_ID = Customer_Bid.Auction_ID
+       INNER JOIN Product ON Auction.Product_ID = Product.Product_ID
+     WHERE Auction.Start_Date AND Auction.End_Date BETWEEN mStart_Date AND mEnd_Date
+     GROUP BY Commission, Start_Date, End_Date, Product.Product_Name
+     ORDER BY Start_Date DESC);
+
+  END //
 DELIMITER ;
 
 -- När en auktion är avslutad och det finns en köpare så skall auktionen flyttas till en
