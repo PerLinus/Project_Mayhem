@@ -30,15 +30,16 @@ public class AddSupplierController {
         try {
             try (Connection connection = DriverManager.getConnection("jdbc:mySQL://localhost:3306/Project_Mayhem?useSSL=false", "root", "root")) {
 
-                PreparedStatement pstm = connection.prepareStatement("INSERT INTO Supplier (Company_Name, Address, Zip_code, City, Phone_number, Email)VALUES(?,?,?,?,?,?)");
-                pstm.setString(1, company_name);
-                pstm.setString(2, address);
-                pstm.setString(3, zipCode);
-                pstm.setString(4, city);
-                pstm.setString(5, phoneNumber);
-                pstm.setString(6, eMail);
+                try (PreparedStatement pstm = connection.prepareStatement("INSERT INTO Supplier (Company_Name, Address, Zip_code, City, Phone_number, Email)VALUES(?,?,?,?,?,?)")) {
+                    pstm.setString(1, company_name);
+                    pstm.setString(2, address);
+                    pstm.setString(3, zipCode);
+                    pstm.setString(4, city);
+                    pstm.setString(5, phoneNumber);
+                    pstm.setString(6, eMail);
 
-                pstm.execute();
+                    pstm.execute();
+                }
 
             }
         } catch (SQLException e) {
