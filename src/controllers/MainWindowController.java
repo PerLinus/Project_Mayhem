@@ -113,7 +113,7 @@ public class MainWindowController {
     public void openCommissionPerMonthList(ActionEvent actionEvent) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../views/commissionForecastSample.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../views/commissionPerMonthSample.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Earned Commission");
             stage.setScene(new Scene(root, 600, 400));

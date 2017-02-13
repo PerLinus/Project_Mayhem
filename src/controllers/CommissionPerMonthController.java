@@ -20,33 +20,15 @@ public class CommissionPerMonthController {
     @FXML
     private TableView twCommissionPerMonth;
 
-    private List<String> yearList = new ArrayList<>();
-    private List<String> monthList = new ArrayList<>();
-    private List<Double> commissionList = new ArrayList<>();
     private List<CommissionPerMonth> commissionPerMonthList = new ArrayList<>();
 
     public void initialize() {
         loadAuctionList();
-        ObservableList<String> observableYearList = FXCollections.observableArrayList(yearList);
-        ObservableList<String> observableMonthList = FXCollections.observableArrayList(monthList);
-        ObservableList<Double> observableCommissionList = FXCollections.observableArrayList(commissionList);
-
-        for (int i = 0 ; i < yearList.size() ; i++){
-            tcYear.setText(yearList.get(i));
-        }
-        for (int i = 0 ; i < monthList.size() ; i++){
-            tcMonth.setText(monthList.get(i));
-        }
-        for (int i = 0 ; i < commissionList.size() ; i++){
-            tcCommission.setText(commissionList.get(i).toString());
-        }
-/**
-            tcYear.setCellValueFactory(new PropertyValueFactory<CommissionPerMonth, String>("year"));
-            tcMonth.setCellFactory(new PropertyValueFactory<CommissionPerMonth, String>("month"));
-            tcCommission.setCellValueFactory(new PropertyValueFactory<CommissionPerMonth, Double>("Commission"));
-
-            twCommissionPerMonth.getItems().setAll(commissionPerMonthList);
- */
+        ObservableList<CommissionPerMonth> list = FXCollections.observableArrayList(commissionPerMonthList);
+        tcYear.setCellValueFactory(new PropertyValueFactory<CommissionPerMonth, String>("Year"));
+        tcMonth.setCellValueFactory(new PropertyValueFactory<CommissionPerMonth, String>("Month"));
+        tcCommission.setCellValueFactory(new PropertyValueFactory<CommissionPerMonth, Double>("Commission"));
+        twCommissionPerMonth.setItems(list);
 
     }
 
@@ -63,9 +45,8 @@ public class CommissionPerMonthController {
                         String month = resultSet.getString("Month");
                         double commission = resultSet.getDouble("Commission");
 
-                        yearList.add(year);
-                        monthList.add(month);
-                        commissionList.add(commission);
+                        commissionPerMonthList.add(new CommissionPerMonth(year, month, commission));
+
                     }
                 }
             }
