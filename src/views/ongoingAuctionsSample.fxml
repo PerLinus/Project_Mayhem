@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<SplitPane dividerPositions="0.29797979797979796" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OngoingAuctionsController">
+<SplitPane dividerPositions="0.29797979797979796" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OngoingAuctionsController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
             <VBox prefHeight="398.0" prefWidth="174.0">
                <children>
                   <Label layoutX="50.0" text="Auctions" />
-                  <ListView prefHeight="399.0" prefWidth="174.0" />
+                  <ListView fx:id="lwAuctions" prefHeight="399.0" prefWidth="174.0" />
                </children>
             </VBox>
          </children></AnchorPane>
@@ -23,9 +23,9 @@
          <children>
             <TableView layoutY="53.0" prefHeight="345.0" prefWidth="416.0">
               <columns>
-                <TableColumn prefWidth="140.0" text="Customer" />
-                <TableColumn prefWidth="140.0" text="Bid" />
-                  <TableColumn prefWidth="140.0" text="Bid date" />
+                <TableColumn fx:id="twCustomer" prefWidth="140.0" text="Customer" />
+                <TableColumn fx:id="twBid" prefWidth="140.0" text="Bid" />
+                  <TableColumn fx:id="twBidDate" prefWidth="140.0" text="Bid date" />
               </columns>
             </TableView>
             <Label layoutX="180.0" layoutY="14.0" text="Bid history" />
