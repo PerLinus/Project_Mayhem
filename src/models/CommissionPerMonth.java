@@ -9,6 +9,7 @@ public class CommissionPerMonth {
     private String month;
     private double commission;
 
+
     public CommissionPerMonth(String year, String month, double commission) {
         this.year = year;
         this.month = month;
