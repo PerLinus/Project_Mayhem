@@ -6,6 +6,5 @@ Todo Project Mayhem
 - Felhantering ofyllda TextField
 - Korrigera datumfält i Add auction GUI
 - PowerPoint
-- Funkar inte med flera fönster öppna. (separat tråd?)
 - Kolla alla datatyper. Typ double istället för Double.
 - Ta bort toString där det inte behövs och fundera på getters and setters

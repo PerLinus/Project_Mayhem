@@ -11,12 +11,12 @@
    <children>
       <TextField fx:id="txfProductName" layoutX="260.0" layoutY="80.0" />
       <TextField fx:id="txfCommission" layoutX="260.0" layoutY="130.0" />
+      <TextArea fx:id="txfDescription" layoutX="260.0" layoutY="180.0" prefHeight="121.0" prefWidth="185.0" />
+      <Button layoutX="468.0" layoutY="342.0" mnemonicParsing="false" text="Add Product" onAction="#onClickAddProduct" />
       <Label layoutX="130.0" layoutY="35.0" text="Choose Supplier" />
       <Label layoutX="130.0" layoutY="85.0" text="Product name" />
       <Label layoutX="130.0" layoutY="135.0" text="Commission" />
       <Label layoutX="130.0" layoutY="180.0" text="Description" />
-      <Button layoutX="468.0" layoutY="342.0" mnemonicParsing="false" text="Add Product" onAction="#onClickAddProduct" />
       <ComboBox fx:id="cbChooseSupplier" layoutX="260.0" layoutY="30.0" prefWidth="150.0" />
-      <TextArea fx:id="txfDescription" layoutX="260.0" layoutY="180.0" prefHeight="121.0" prefWidth="185.0" />
    </children>
 </Pane>
