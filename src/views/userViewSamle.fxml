@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<?import javafx.scene.control.TextField?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserViewController">
+   <children>
+      <Label layoutX="266.0" layoutY="22.0" text="Auction list" />
+      <TableView fx:id="twAuctionList" layoutX="14.0" layoutY="60.0" prefHeight="326.0" prefWidth="450.0">
+        <columns>
+          <TableColumn fx:id="tcProductName" prefWidth="126.0" text="Product Name" />
+          <TableColumn fx:id="tcSupplier" prefWidth="122.0" text="Supplier" />
+            <TableColumn fx:id="tcHighestBid" prefWidth="93.0" text="Highest Bid" />
+            <TableColumn fx:id="tcAcceptPrice" prefWidth="108.0" text="Accept Price" />
+        </columns>
+      </TableView>
+      <Button layoutX="510.0" layoutY="350.0" mnemonicParsing="false" onAction="#onClickOpenBiddingWindow" text="Place Bid" />
+      <Button layoutX="527.0" layoutY="96.0" mnemonicParsing="false" onAction="#onClicksearch" text="Search" />
+      <TextField fx:id="txfSearchWord" layoutX="468.0" layoutY="60.0" prefHeight="27.0" prefWidth="117.0" promptText="Search product" />
+   </children>
+</Pane>
