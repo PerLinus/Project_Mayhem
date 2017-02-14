@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import models.CommissionPerMonth;
 import models.Customer_history;
 
 import java.sql.*;
@@ -29,10 +28,10 @@ public class CustomerListController {
         loadCustomerListView();
 
         ObservableList<Customer_history> list = FXCollections.observableArrayList(customer_historyList);
-        tcId.setCellValueFactory(new PropertyValueFactory<Customer_history, Integer >("Customer_ID"));
-        tcFirstName.setCellValueFactory(new PropertyValueFactory<Customer_history, String >("First_Name"));
-        tcLastName.setCellValueFactory(new PropertyValueFactory<Customer_history, String >("Last_Name"));
-        tcTotalPurchase.setCellValueFactory(new PropertyValueFactory<Customer_history, Double >("TotalPurchases"));
+        tcId.setCellValueFactory(new PropertyValueFactory<Customer_history, Integer >("customerID"));
+        tcFirstName.setCellValueFactory(new PropertyValueFactory<Customer_history, String >("firstName"));
+        tcLastName.setCellValueFactory(new PropertyValueFactory<Customer_history, String >("lastName"));
+        tcTotalPurchase.setCellValueFactory(new PropertyValueFactory<Customer_history, Double >("totalPurchase"));
         tvCustomerList.setItems(list);
 
     }

@@ -5,3 +5,5 @@ Todo Project Mayhem
 - Fixa est_auction_report
 - Felhantering ofyllda TextField
 - Korrigera datumfält i Add auction GUI
+- PowerPoint
+- Funkar inte med flera fönster öppna. (separat tråd?)

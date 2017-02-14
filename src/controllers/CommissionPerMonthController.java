@@ -25,9 +25,9 @@ public class CommissionPerMonthController {
     public void initialize() {
         loadAuctionList();
         ObservableList<CommissionPerMonth> list = FXCollections.observableArrayList(commissionPerMonthList);
-        tcYear.setCellValueFactory(new PropertyValueFactory<CommissionPerMonth, String>("Year"));
-        tcMonth.setCellValueFactory(new PropertyValueFactory<CommissionPerMonth, String>("Month"));
-        tcCommission.setCellValueFactory(new PropertyValueFactory<CommissionPerMonth, Double>("Commission"));
+        tcYear.setCellValueFactory(new PropertyValueFactory<CommissionPerMonth, String>("year"));
+        tcMonth.setCellValueFactory(new PropertyValueFactory<CommissionPerMonth, String>("month"));
+        tcCommission.setCellValueFactory(new PropertyValueFactory<CommissionPerMonth, Double>("commission"));
         twCommissionPerMonth.setItems(list);
 
     }

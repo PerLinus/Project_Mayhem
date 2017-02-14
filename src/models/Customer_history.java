@@ -48,4 +48,5 @@ public class Customer_history {
     public void setTotalPurchase(double totalPurchase) {
         this.totalPurchase = totalPurchase;
     }
+
 }
