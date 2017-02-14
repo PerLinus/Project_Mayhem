@@ -8,8 +8,8 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddAuctionController">
    <children>
-      <TextField fx:id="txfStartDate" layoutX="270.0" layoutY="90.0" text="YY-MM-DD" />
-      <TextField fx:id="txfEndDate" layoutX="270.0" layoutY="140.0" text="YY-MM-DD" />
+      <TextField fx:id="txfStartDate" layoutX="270.0" layoutY="90.0" promptText="YYYY-MM-DD" />
+      <TextField fx:id="txfEndDate" layoutX="270.0" layoutY="140.0" promptText="YYYY-MM-DD" />
       <TextField fx:id="txfStartPrice" layoutX="270.0" layoutY="190.0" />
       <TextField fx:id="txfAcceptPrice" layoutX="270.0" layoutY="240.0" />
       <Label layoutX="140.0" layoutY="45.0" text="Choose Product" />
