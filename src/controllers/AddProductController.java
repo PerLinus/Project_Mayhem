@@ -60,7 +60,7 @@ public class AddProductController {
     public void onClickAddProduct(ActionEvent actionEvent) {
 
         String product_name = txfProductName.getText();
-        String comission = txfCommission.getText();;
+        String commission = txfCommission.getText();
         String info = txfDescription.getText();
 
 
@@ -71,7 +71,7 @@ public class AddProductController {
                 Supplier supplier = (Supplier) cbChooseSupplier.getSelectionModel().getSelectedItem();
                 pstm.setInt(1, supplier.getSupplierID());
                 pstm.setString(2, product_name);
-                pstm.setString(3, comission);
+                pstm.setString(3, commission);
                 pstm.setString(4, info);
 
                 pstm.execute();

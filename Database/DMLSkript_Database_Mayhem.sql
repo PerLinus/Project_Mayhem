@@ -14,3 +14,6 @@ SELECT * FROM list_ongoing_auctions;
 CALL Est_Auction_Report('2016-01-01', '2017-05-05');
 
 SELECT * FROM supplier;
+
+SELECT * FROM customer_history;
+
