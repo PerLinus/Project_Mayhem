@@ -7,10 +7,10 @@ public class Auction {
     private int productID;
     private String startDate;
     private String endDate;
-    private Double startPrice;
-    private Double acceptPrice;
+    private double startPrice;
+    private double acceptPrice;
 
-    public Auction(int auctionID, int productID, String startDate, String endDate, Double startPrice, Double acceptPrice) {
+    public Auction(int auctionID, int productID, String startDate, String endDate, double startPrice, double acceptPrice) {
         this.auctionID = auctionID;
         this.productID = productID;
         this.startDate = startDate;
@@ -51,19 +51,19 @@ public class Auction {
         this.endDate = endDate;
     }
 
-    public Double getStartPrice() {
+    public double getStartPrice() {
         return startPrice;
     }
 
-    public void setStartPrice(Double startPrice) {
+    public void setStartPrice(double startPrice) {
         this.startPrice = startPrice;
     }
 
-    public Double getAcceptPrice() {
+    public double getAcceptPrice() {
         return acceptPrice;
     }
 
-    public void setAcceptPrice(Double acceptPrice) {
+    public void setAcceptPrice(double acceptPrice) {
         this.acceptPrice = acceptPrice;
     }
 

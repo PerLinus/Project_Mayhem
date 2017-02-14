@@ -6,10 +6,10 @@ public class CustomerBid {
     private int bidID;
     private int customerID;
     private int auctionID;
-    private Double bid;
+    private double bid;
     private String bidDate;
 
-    public CustomerBid(int bidID, int customerID, int auctionID, Double bid, String bidDate) {
+    public CustomerBid(int bidID, int customerID, int auctionID, double bid, String bidDate) {
         this.bidID = bidID;
         this.customerID = customerID;
         this.auctionID = auctionID;
@@ -41,11 +41,11 @@ public class CustomerBid {
         this.auctionID = auctionID;
     }
 
-    public Double getBid() {
+    public double getBid() {
         return bid;
     }
 
-    public void setBid(Double bid) {
+    public void setBid(double bid) {
         this.bid = bid;
     }
 

@@ -1,10 +1,10 @@
 Todo Project Mayhem
 
 - Option Pane funktion Confrim msgs.
-- Fixa ordning på textfields
-- Fixa est_auction_report
+- Fixa ordning på textfields /KLAR
+- Fixa est_auction_report /KLAR
 - Felhantering ofyllda TextField
-- Korrigera datumfält i Add auction GUI
+- Korrigera datumfält i Add auction GUI /KLAR
 - PowerPoint
 - Kolla alla datatyper. Typ double istället för Double.
 - Ta bort toString där det inte behövs och fundera på getters and setters

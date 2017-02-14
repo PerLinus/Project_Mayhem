@@ -6,14 +6,14 @@ public class Auction_History {
     private int auctionID;
     private int productID;
     private int customerID;
-    private Double finalBid;
+    private double finalBid;
     private String dateSold;
     private String startDate;
     private String endDate;
-    private Double startPrice;
-    private Double acceptPris;
+    private double startPrice;
+    private double acceptPris;
 
-    public Auction_History(int auctionID, int productID, int customerID, Double finalBid, String dateSold, String startDate, String endDate, Double startPrice, Double acceptPris) {
+    public Auction_History(int auctionID, int productID, int customerID, double finalBid, String dateSold, String startDate, String endDate, double startPrice, double acceptPris) {
         this.auctionID = auctionID;
         this.productID = productID;
         this.customerID = customerID;
@@ -49,11 +49,11 @@ public class Auction_History {
         this.customerID = customerID;
     }
 
-    public Double getFinalBid() {
+    public double getFinalBid() {
         return finalBid;
     }
 
-    public void setFinalBid(Double finalBid) {
+    public void setFinalBid(double finalBid) {
         this.finalBid = finalBid;
     }
 
@@ -81,19 +81,19 @@ public class Auction_History {
         this.endDate = endDate;
     }
 
-    public Double getStartPrice() {
+    public double getStartPrice() {
         return startPrice;
     }
 
-    public void setStartPrice(Double startPrice) {
+    public void setStartPrice(double startPrice) {
         this.startPrice = startPrice;
     }
 
-    public Double getAcceptPris() {
+    public double getAcceptPris() {
         return acceptPris;
     }
 
-    public void setAcceptPris(Double acceptPris) {
+    public void setAcceptPris(double acceptPris) {
         this.acceptPris = acceptPris;
     }
 
