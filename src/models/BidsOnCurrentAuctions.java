@@ -3,7 +3,7 @@ package models;
 /**
  * Created by Linus Nilsson on 2017-02-14.
  */
-public class OngoingAuctions {
+public class BidsOnCurrentAuctions {
 
     private int auctionID;
     private double bid;
@@ -12,7 +12,7 @@ public class OngoingAuctions {
     private String bidDate;
     private String productName;
 
-    public OngoingAuctions(int auctionID, double bid, String firstName, String lastName, String bidDate, String productName) {
+    public BidsOnCurrentAuctions(int auctionID, double bid, String firstName, String lastName, String bidDate, String productName) {
         this.auctionID = auctionID;
         this.bid = bid;
         this.firstName = firstName;
@@ -67,6 +67,10 @@ public class OngoingAuctions {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getName() {
+        return firstName + " " + lastName;
     }
 
     @Override
