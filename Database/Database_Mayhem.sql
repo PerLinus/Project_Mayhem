@@ -128,11 +128,11 @@ INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City,
 INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUES ('Lex', 'Luthor', '0725416852', 'Ihatesuper@man.com', 'LexStreet', 'Metropolis', '22154');
 INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUES ('Tor', 'Odensson', '0707522222', 'Mjolnir@hammer.com', 'VikingLane4', 'Valhalla', '78723');
 
--- Skapa CustomerBid
+-- Skapa Customer_Bid
 INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 302, '25500', '2017-02-04 19:05:37');
 INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 303, '6500', '2017-02-03 23:24:01');
-INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(201, 302, '26000', '2017-02-09 07:45:05');
-INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(201, 303, '8000', '2017-02-09 14:36:24');
+INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 302, '26000', '2017-02-09 07:45:05');
+INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 303, '8000', '2017-02-09 14:36:24');
 
 
 -- Skapa Auction_History
@@ -205,12 +205,12 @@ CREATE PROCEDURE Est_auction_report(IN mStart_Date DATE, IN mEnd_Date DATE)
        Auction_History.End_Date,
        Auction_History.Date_Sold,
        Auction_History.Final_Bid,
-       SUM(Auction_History.Final_Bid * Product.Commission) AS Comission,
+       SUM(Auction_History.Final_Bid * Product.Commission) AS Commission,
        Product.Product_Name
      FROM Auction_History
        INNER JOIN Product ON Auction_History.Product_ID = Product.Product_ID
      WHERE Auction_History.Start_Date AND Auction_History.End_Date BETWEEN mStart_Date AND mEnd_Date
-     GROUP BY Commission, Start_Date, End_Date, Date_Sold, Final_Bid, Product.Product_Name
+     GROUP BY Start_Date, End_Date, Date_Sold, Final_Bid, Product.Product_Name
      ORDER BY Start_Date DESC)
     UNION
     (SELECT
@@ -219,17 +219,21 @@ CREATE PROCEDURE Est_auction_report(IN mStart_Date DATE, IN mEnd_Date DATE)
        'Unsold',
        'Unsold',
       -- FIXA FÖR FAN!!!
-       SUM(MAX(Customer_Bid.Bid) * Product.Commission) AS Comission,
+       -- SUM(MAX(Customer_Bid.Bid) * Product.Commission) AS `mCommission`,
+      MAX(Customer_Bid.Bid * Product.Commission) AS test,
        Product.Product_Name
      FROM Auction
        INNER JOIN Customer_Bid ON Auction.Auction_ID = Customer_Bid.Auction_ID
        INNER JOIN Product ON Auction.Product_ID = Product.Product_ID
-     WHERE Auction.Start_Date AND Auction.End_Date BETWEEN mStart_Date AND mEnd_Date
-     GROUP BY Commission, Start_Date, End_Date, Product.Product_Name
+       WHERE Auction.Start_Date AND Auction.End_Date BETWEEN mStart_Date AND mEnd_Date
+       -- HAVING test = MAX(test)
+     GROUP BY Start_Date, End_Date, Product.Product_Name
      ORDER BY Start_Date DESC);
 
   END //
 DELIMITER ;
+
+CALL Est_auction_report('2010-01-01', '2019-01-01');
 
 -- När en auktion är avslutad och det finns en köpare så skall auktionen flyttas till en
 -- auktionshistoriktabell
@@ -295,12 +299,3 @@ SELECT YEAR(Auction_History.Date_Sold) AS Year, MONTHNAME(Auction_History.Date_S
 GROUP BY Month
 ORDER BY Year, Month;
 
--- Extra view för tab: Ongoing Auctions i vår grafiska lösning.
-CREATE VIEW Ongoing_auctions AS
-
-  SELECT Product.Product_Name, Customer_Bid.Bid, Auction.Auction_ID, Customer_Bid.Bid_Date, Customer.First_Name, Customer.Last_Name
-  FROM Customer
-    INNER JOIN Customer_Bid ON Customer.Customer_ID = Customer_Bid.Customer_ID
-    INNER JOIN Auction ON Customer_Bid.Auction_ID = Auction.Auction_ID
-    INNER JOIN Product ON Auction.Product_ID = Product.Product_ID
-  ORDER BY Customer_Bid.Bid DESC;
