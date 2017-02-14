@@ -234,7 +234,7 @@ DELIMITER ;
 -- När en auktion är avslutad och det finns en köpare så skall auktionen flyttas till en
 -- auktionshistoriktabell
 SET GLOBAL EVENT_SCHEDULER = ON;
-
+DROP EVENT IF EXISTS End_of_auction;
 CREATE EVENT End_of_auction
   ON SCHEDULE EVERY '1' DAY
   STARTS CURRENT_DATE
@@ -245,7 +245,7 @@ DO
       SELECT auction.Auction_ID,auction.Product_ID,customer_bid.Customer_ID,MAX(customer_bid.Bid) AS MaxBid,
         customer_bid.Bid_Date, auction.Start_Date, auction.End_Date, auction.Start_Price, Accept_Price FROM auction
         LEFT JOIN customer_bid ON customer_bid.Auction_ID = auction.Auction_ID
-      WHERE auction.End_Date < '2017-03-01'
+      WHERE auction.End_Date < current_date()
       GROUP BY auction.Auction_ID;
 
     DELETE FROM auction WHERE auction.Auction_ID IN (SELECT auction_history.Auction_ID FROM auction_history);
@@ -294,3 +294,5 @@ SELECT YEAR(Auction_History.Date_Sold) AS Year, MONTHNAME(Auction_History.Date_S
   INNER JOIN Auction_History ON product.Product_ID = auction_history.Product_ID
 GROUP BY Month
 ORDER BY Year, Month;
+
+SELECT * FROM Commission_per_month_view;
