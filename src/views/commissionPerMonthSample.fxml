@@ -5,14 +5,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CommissionPerMonthController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CommissionPerMonthController">
    <children>
       <Label layoutX="205.0" layoutY="22.0" text="Total commission per month" />
       <TableView fx:id="twCommissionPerMonth" layoutY="51.0" prefHeight="348.0" prefWidth="600.0">
         <columns>
             <TableColumn fx:id="tcYear" prefWidth="200.0" text="Year" />
           <TableColumn fx:id="tcMonth" prefWidth="200.0" text="Month" />
-          <TableColumn fx:id="tcCommission" prefWidth="200.0" text="Commission" />
+          <TableColumn fx:id="tcCommission" prefWidth="197.0" text="Commission" />
         </columns>
       </TableView>
    </children>

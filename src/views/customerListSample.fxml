@@ -5,14 +5,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerListController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerListController">
    <children>
       <TableView fx:id="tvCustomerList" layoutX="1.0" layoutY="56.0" prefHeight="342.0" prefWidth="600.0">
         <columns>
             <TableColumn fx:id="tcId" prefWidth="70.0" text="ID" />
           <TableColumn fx:id="tcFirstName" prefWidth="175.0" text="First name" />
             <TableColumn fx:id="tcLastName" prefWidth="175.0" text="Last name" />
-          <TableColumn fx:id="tcTotalPurchase" prefWidth="180.0" text="Total Purchase" />
+          <TableColumn fx:id="tcTotalPurchase" prefWidth="177.0" text="Total Purchase" />
         </columns>
       </TableView>
       <Label layoutX="222.0" layoutY="25.0" text="Total sale per Customer" />
