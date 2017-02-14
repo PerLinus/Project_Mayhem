@@ -48,7 +48,7 @@ public class LogInWindowController {
                                     Parent root = FXMLLoader.load(getClass().getResource("../views/mainWindowSample.fxml"));
                                     Stage stage = new Stage();
                                     stage.setTitle("Admin Window");
-                                    stage.setScene(new Scene(root, 600, 400));
+                                    stage.setScene(new Scene(root, 800, 600));
                                     stage.setResizable(false);
                                     stage.initModality(Modality.APPLICATION_MODAL);
                                     stage.show();
