@@ -77,6 +77,13 @@ CREATE TABLE Customer_Bid
 );
 ALTER TABLE `Customer_Bid` AUTO_INCREMENT = 400;
 
+CREATE TABLE LogIn
+(
+  UserName CHAR(50) PRIMARY KEY,
+  Password CHAR(50) NOT NULL,
+  Admin_Access BOOL DEFAULT FALSE NOT NULL
+);
+
 CREATE VIEW Unsold_Products_View
 AS
     SELECT
@@ -87,9 +94,6 @@ AS
         Auction_History.Start_Price
     FROM Auction_History
     WHERE Auction_History.Final_Bid IS NULL;
-
-SELECT * FROM Unsold_Products_View;
-SELECT * FROM Auction_History;
 
 -- Skapa Supplier
 INSERT INTO Supplier(Company_Name, Address, Zip_Code, City, Phone_Number, Email)VALUES('Bus & Båg', 'Frejgatan 43', '11384', 'Stockholm', '070-6785423', 'busbag@hotmail.com');
@@ -142,6 +146,12 @@ INSERT INTO auction_history VALUES (290, 95, 203, 2054, '2016-01-15 14:15:06', '
 INSERT INTO auction_history VALUES (291, 96, 204, 527, '2016-03-27 20:28:29', '2016-03-06', '2016-03-30', 500, 600 );
 INSERT INTO auction_history VALUES (292, 97, 204, 10000, '2016-01-25 23:15:15', '2016-01-18', '2016-01-26', 5000, 15000 );
 INSERT INTO auction_history VALUES (293, 94, 203, 25, '2016-03-05 17:19:48', '2016-03-01', '2016-03-06', 20, 35 );
+
+-- Skapa Användare
+
+INSERT INTO LogIn VALUES ('Gunnde63', 'root', TRUE );
+INSERT INTO LogIN (UserName, Password) VALUES ('Simon', 'IloveGunnde');
+
 
 -- Registrera en produkt
 DROP PROCEDURE IF EXISTS Register_one_product;
