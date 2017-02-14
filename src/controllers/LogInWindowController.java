@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.*;
 
 /**
@@ -59,8 +60,18 @@ public class LogInWindowController {
                                 }
 
                             }else {
+                                try {
+                                    Parent root = FXMLLoader.load(getClass().getResource("../views/userViewSample.fxml"));
+                                    Stage stage = new Stage();
+                                    stage.setTitle("User Window");
+                                    stage.setScene(new Scene(root, 600, 400));
+                                    stage.setResizable(false);
+                                    stage.initModality(Modality.APPLICATION_MODAL);
+                                    stage.show();
 
-
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
 
                             }
                         }
