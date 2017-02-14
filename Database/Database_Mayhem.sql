@@ -128,11 +128,11 @@ INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City,
 INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUES ('Lex', 'Luthor', '0725416852', 'Ihatesuper@man.com', 'LexStreet', 'Metropolis', '22154');
 INSERT INTO Customer (First_Name, Last_Name, Phone_Number, Email, Address, City, Zip_Code) VALUES ('Tor', 'Odensson', '0707522222', 'Mjolnir@hammer.com', 'VikingLane4', 'Valhalla', '78723');
 
--- Skapa Customer_Bid
+-- Skapa CustomerBid
 INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 302, '25500', '2017-02-04 19:05:37');
 INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 303, '6500', '2017-02-03 23:24:01');
-INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 302, '26000', '2017-02-09 07:45:05');
-INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(200, 303, '8000', '2017-02-09 14:36:24');
+INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(201, 302, '26000', '2017-02-09 07:45:05');
+INSERT INTO Customer_Bid(Customer_ID, Auction_ID, Bid, Bid_Date)VALUES(201, 303, '8000', '2017-02-09 14:36:24');
 
 
 -- Skapa Auction_History
@@ -295,4 +295,12 @@ SELECT YEAR(Auction_History.Date_Sold) AS Year, MONTHNAME(Auction_History.Date_S
 GROUP BY Month
 ORDER BY Year, Month;
 
-SELECT * FROM Commission_per_month_view;
+-- Extra view för tab: Ongoing Auctions i vår grafiska lösning.
+CREATE VIEW Ongoing_auctions AS
+
+  SELECT Product.Product_Name, Customer_Bid.Bid, Auction.Auction_ID, Customer_Bid.Bid_Date, Customer.First_Name, Customer.Last_Name
+  FROM Customer
+    INNER JOIN Customer_Bid ON Customer.Customer_ID = Customer_Bid.Customer_ID
+    INNER JOIN Auction ON Customer_Bid.Auction_ID = Auction.Auction_ID
+    INNER JOIN Product ON Auction.Product_ID = Product.Product_ID
+  ORDER BY Customer_Bid.Bid DESC;

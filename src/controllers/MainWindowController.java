@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainWindowController {
@@ -17,6 +18,7 @@ public class MainWindowController {
             stage.setTitle("Add Supplier");
             stage.setScene(new Scene(root, 600, 400));
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         }catch (Exception e) {
            e.printStackTrace();
@@ -31,6 +33,7 @@ public class MainWindowController {
             stage.setTitle("Add Customer");
             stage.setScene(new Scene(root, 600, 400));
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -46,6 +49,7 @@ public class MainWindowController {
             stage.setTitle("Add Product");
             stage.setScene(new Scene(root, 600, 400));
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -61,6 +65,7 @@ public class MainWindowController {
             stage.setTitle("Add Auction");
             stage.setScene(new Scene(root, 600, 400));
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -76,6 +81,7 @@ public class MainWindowController {
             stage.setTitle("Ongoing Auctions");
             stage.setScene(new Scene(root, 600, 400));
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -90,6 +96,7 @@ public class MainWindowController {
             stage.setTitle("Commission Forecast");
             stage.setScene(new Scene(root, 600, 400));
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -104,6 +111,7 @@ public class MainWindowController {
             stage.setTitle("Customer Purchase List");
             stage.setScene(new Scene(root, 600, 400));
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();
@@ -118,6 +126,7 @@ public class MainWindowController {
             stage.setTitle("Earned Commission");
             stage.setScene(new Scene(root, 600, 400));
             stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         }catch (Exception e) {
             e.printStackTrace();

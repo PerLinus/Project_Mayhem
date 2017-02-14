@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import models.Customer_history;
+import models.CustomerHistory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class CustomerListController {
 
-    private List<Customer_history> customer_historyList = new ArrayList<>();
+    private List<CustomerHistory> customer_historyList = new ArrayList<>();
 
     @FXML
     private TableColumn tcId, tcFirstName, tcLastName, tcTotalPurchase;
@@ -27,11 +27,11 @@ public class CustomerListController {
 
         loadCustomerListView();
 
-        ObservableList<Customer_history> list = FXCollections.observableArrayList(customer_historyList);
-        tcId.setCellValueFactory(new PropertyValueFactory<Customer_history, Integer >("customerID"));
-        tcFirstName.setCellValueFactory(new PropertyValueFactory<Customer_history, String >("firstName"));
-        tcLastName.setCellValueFactory(new PropertyValueFactory<Customer_history, String >("lastName"));
-        tcTotalPurchase.setCellValueFactory(new PropertyValueFactory<Customer_history, Double >("totalPurchase"));
+        ObservableList<CustomerHistory> list = FXCollections.observableArrayList(customer_historyList);
+        tcId.setCellValueFactory(new PropertyValueFactory<CustomerHistory, Integer >("customerID"));
+        tcFirstName.setCellValueFactory(new PropertyValueFactory<CustomerHistory, String >("firstName"));
+        tcLastName.setCellValueFactory(new PropertyValueFactory<CustomerHistory, String >("lastName"));
+        tcTotalPurchase.setCellValueFactory(new PropertyValueFactory<CustomerHistory, Double >("totalPurchase"));
         tvCustomerList.setItems(list);
 
     }
@@ -50,7 +50,7 @@ public class CustomerListController {
                         String lastName = resultSet.getString("Last_Name");
                         double totalpurchases = resultSet.getDouble("TotalPurchases");
 
-                        customer_historyList.add(new Customer_history(customerID, firstName, lastName, totalpurchases));
+                        customer_historyList.add(new CustomerHistory(customerID, firstName, lastName, totalpurchases));
 
                     }
                 }

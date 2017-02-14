@@ -6,11 +6,11 @@ public class Product {
     private int productID;
     private int supplierID;
     private String productName;
-    private Double commission;
+    private double commission;
     private String entryDate;
     private String text;
 
-    public Product(int productID, int supplierID, String productName, Double commission, String entryDate, String text) {
+    public Product(int productID, int supplierID, String productName, double commission, String entryDate, String text) {
         this.productID = productID;
         this.supplierID = supplierID;
         this.productName = productName;
@@ -43,11 +43,11 @@ public class Product {
         this.productName = productName;
     }
 
-    public Double getCommission() {
+    public double getCommission() {
         return commission;
     }
 
-    public void setCommission(Double commission) {
+    public void setCommission(double commission) {
         this.commission = commission;
     }
 

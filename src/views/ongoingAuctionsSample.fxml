@@ -15,17 +15,17 @@
             <VBox prefHeight="398.0" prefWidth="174.0">
                <children>
                   <Label layoutX="50.0" text="Auctions" />
-                  <ListView fx:id="lwAuctions" prefHeight="399.0" prefWidth="174.0" />
+                  <ListView onMouseClicked="#onMouseClicked" fx:id="lwAuctions" prefHeight="399.0" prefWidth="174.0"/>
                </children>
             </VBox>
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <TableView layoutY="53.0" prefHeight="345.0" prefWidth="416.0">
+            <TableView fx:id="twBidHistory" layoutY="53.0" prefHeight="345.0" prefWidth="416.0">
               <columns>
-                <TableColumn fx:id="twCustomer" prefWidth="140.0" text="Customer" />
-                <TableColumn fx:id="twBid" prefWidth="140.0" text="Bid" />
-                  <TableColumn fx:id="twBidDate" prefWidth="140.0" text="Bid date" />
+                <TableColumn fx:id="tcCustomer" prefWidth="140.0" text="Customer" />
+                <TableColumn fx:id="tcBid" prefWidth="140.0" text="Bid" />
+                  <TableColumn fx:id="tcBidDate" prefWidth="140.0" text="Bid date" />
               </columns>
             </TableView>
             <Label layoutX="180.0" layoutY="14.0" text="Bid history" />

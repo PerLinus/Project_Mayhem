@@ -1,7 +1,7 @@
 package models;
 
 
-public class Customer_Bid {
+public class CustomerBid {
 
     private int bidID;
     private int customerID;
@@ -9,7 +9,7 @@ public class Customer_Bid {
     private Double bid;
     private String bidDate;
 
-    public Customer_Bid(int bidID, int customerID, int auctionID, Double bid, String bidDate) {
+    public CustomerBid(int bidID, int customerID, int auctionID, Double bid, String bidDate) {
         this.bidID = bidID;
         this.customerID = customerID;
         this.auctionID = auctionID;
