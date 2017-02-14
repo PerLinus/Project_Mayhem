@@ -218,15 +218,12 @@ CREATE PROCEDURE Est_auction_report(IN mStart_Date DATE, IN mEnd_Date DATE)
        Auction.End_Date,
        'Unsold',
        'Unsold',
-      -- FIXA FÖR FAN!!!
-       -- SUM(MAX(Customer_Bid.Bid) * Product.Commission) AS `mCommission`,
       MAX(Customer_Bid.Bid * Product.Commission) AS test,
        Product.Product_Name
      FROM Auction
        INNER JOIN Customer_Bid ON Auction.Auction_ID = Customer_Bid.Auction_ID
        INNER JOIN Product ON Auction.Product_ID = Product.Product_ID
        WHERE Auction.Start_Date AND Auction.End_Date BETWEEN mStart_Date AND mEnd_Date
-       -- HAVING test = MAX(test)
      GROUP BY Start_Date, End_Date, Product.Product_Name
      ORDER BY Start_Date DESC);
 
