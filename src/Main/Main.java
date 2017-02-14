@@ -8,11 +8,13 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../views/mainWindowSample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../views/logInSample.fxml"));
         primaryStage.setTitle("Nackademiska Auktionsfrämjandet");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.setResizable(false);
         primaryStage.show();
     }
