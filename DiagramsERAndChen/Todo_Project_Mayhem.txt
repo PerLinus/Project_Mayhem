@@ -8,3 +8,5 @@ Todo Project Mayhem
 - PowerPoint
 - Kolla alla datatyper. Typ double istället för Double.
 - Ta bort toString där det inte behövs och fundera på getters and setters
+- Fixa SQL-delen i inloggning
+- GROUP BY i alla listor som inte funkar på mac
