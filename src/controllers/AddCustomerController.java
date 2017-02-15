@@ -3,6 +3,7 @@ package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 import java.sql.Connection;
@@ -24,6 +25,7 @@ public class AddCustomerController {
         String address = txfAddress.getText();
         String city = txfCity.getText();
         String zipCode = txfZipCode.getText();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
         try (Connection connection = DriverManager.getConnection("jdbc:mySQL://localhost:3306/Project_Mayhem?useSSL=false", "root", "root")) {
 
@@ -39,10 +41,20 @@ public class AddCustomerController {
 
                 pstm.execute();
 
+                alert.setTitle("New customer added");
+                alert.setContentText("The customer is sucessfully added to database");
+                alert.showAndWait();
+                alert.close();
+
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setTitle("Database error!");
+            error.setContentText("Customer could not be added. Contact support!");
+            error.showAndWait();
+            error.close();
         }
 
     }

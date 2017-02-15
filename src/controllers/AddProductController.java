@@ -5,9 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import models.Supplier;
 
 import java.sql.*;
@@ -64,6 +62,7 @@ public class AddProductController {
         String info = txfDescription.getText();
 
         double commission = Double.parseDouble(commissionText);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
         try (Connection connection = DriverManager.getConnection("jdbc:mySQL://localhost:3306/Project_Mayhem?useSSL=false", "root", "root")) {
 
@@ -77,10 +76,19 @@ public class AddProductController {
 
                 pstm.execute();
 
+                alert.setTitle("Product added");
+                alert.setContentText("Your product is sucessfully added to database");
+                alert.showAndWait();
+                alert.close();
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setTitle("Product error!");
+            error.setContentText("Your product could not be added. Contact support.");
+            error.showAndWait();
+            error.close();
         }
     }
 }
