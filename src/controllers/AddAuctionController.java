@@ -61,9 +61,6 @@ public class AddAuctionController {
 
     public void onClickAddAuction(ActionEvent actionEvent) {
 
-     //   String startDate = txfStartDate.getText();
-     //   String endDate = txfEndDate.getText();
-
         LocalDate startDate = dpStartDate.getValue();
         LocalDate endDate = dpEndDate.getValue();
 
