@@ -11,13 +11,12 @@ KLAR - Commission Forecast. formatera så det står kr i commission och avrunda?
 KLAR - Korrigera ER- och relationsdiagram - Micke
 KLAR - Färdiga Datum istället för TextField - Markus
 KLAR - Add auction uppdateras efter upplägg av auction på produkt.
-- Option Pane funktion Confirm msgs - Ola
+KLAR - Felhantering ofyllda TextField
 
+- Option Pane funktion Confirm msgs - Ola
 - PowerPoint - Ola
 
 - ändra inloggfönster. - Perez
-
-- Felhantering ofyllda TextField
 
 - Ta bort toString där det inte behövs och fundera på getters and setters
 
