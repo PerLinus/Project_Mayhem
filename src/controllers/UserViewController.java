@@ -48,7 +48,7 @@ public class UserViewController {
                         double commission = resultSet.getDouble("Commission");
 
 
-                     //   auctionsList.add(new Auction());
+                        auctionsList.add(new Auction());
 
                     }
                 }
