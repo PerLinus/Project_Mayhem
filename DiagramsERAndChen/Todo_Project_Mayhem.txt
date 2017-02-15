@@ -8,7 +8,7 @@ KLAR - Korrigera datumfält i Add auction GUI /
 - PowerPoint - Ola
 KLAR - Kolla alla datatyper. Typ double istället för Double. /
 - Ta bort toString där det inte behövs och fundera på getters and setters
-- Fixa SQL-delen i inloggning - Markus
+KLAR - Fixa SQL-delen i inloggning - Markus
 - GROUP BY i alla listor som inte funkar på mac - Markus
 - ändra inloggfönster. - Perez
 - Ändra hur vi lägger till commission. Även promptText
