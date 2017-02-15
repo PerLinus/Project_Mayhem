@@ -332,5 +332,4 @@ AS
     INNER JOIN Auction ON Product.Product_ID = Auction.Product_ID
     INNER JOIN Customer_Bid ON Auction.Auction_ID = Customer_Bid.Auction_ID
   GROUP BY Product.Product_Name, Supplier.Company_Name, Auction.Accept_Price, Auction.Auction_ID
-  ORDER BY Product_Name
-;
+  ORDER BY Product_Name;
