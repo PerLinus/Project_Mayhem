@@ -32,8 +32,8 @@ public class CommissionPerMonth {
         this.month = month;
     }
 
-    public double getCommission() {
-        return commission;
+    public String getCommission() {
+        return Math.round(commission) + " kr";
     }
 
     public void setCommission(double commission) {
