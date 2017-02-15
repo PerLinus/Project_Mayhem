@@ -6,16 +6,21 @@ KLAR - Korrigera datumfält i Add auction GUI /
 KLAR - Kolla alla datatyper. Typ double istället för Double. /
 KLAR - Fixa SQL-delen i inloggning - Markus
 KLAR - GROUP BY i alla listor som inte funkar på mac - Markus
+KLAR - Ändra hur vi lägger till commission. Även promptText - Markus
+
 - Option Pane funktion Confrim msgs - Ola
-- Felhantering ofyllda TextField
 - PowerPoint - Ola
-- Ta bort toString där det inte behövs och fundera på getters and setters
+
 - ändra inloggfönster. - Perez
-- Ändra hur vi lägger till commission. Även promptText
+
 - Testa add auction.  - Linus
+
 - Commission Forecast. formatera så det står kr i commission och avrunda? Samma i Customer Purchase List. - Oswald/Micke
-- Refactor names.
 - Korrigera ER och relation - Micke
+
+- Felhantering ofyllda TextField
+- Ta bort toString där det inte behövs och fundera på getters and setters
+- Refactor names.
 - Färdiga Datum istället för TextField
 test
 
