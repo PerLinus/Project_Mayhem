@@ -69,7 +69,7 @@ public class AddAuctionController {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
-        if(validateTextFeilds()) {
+        if(validateUserInput()) {
 
             try {
                 try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project_Mayhem", "root", "root")) {
@@ -116,7 +116,7 @@ public class AddAuctionController {
         }
     }
 
-    public boolean validateTextFeilds(){
+    public boolean validateUserInput(){
         if(txfStartPrice.getText().trim().length() == 0){
             return false;
         } else if (txfAcceptPrice.getText().trim().length() == 0){
