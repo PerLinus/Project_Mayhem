@@ -2,14 +2,13 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddAuctionController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddAuctionController">
    <children>
-      <TextField fx:id="txfStartDate" layoutX="270.0" layoutY="90.0" promptText="YYYY-MM-DD" />
-      <TextField fx:id="txfEndDate" layoutX="270.0" layoutY="140.0" promptText="YYYY-MM-DD" />
       <TextField fx:id="txfStartPrice" layoutX="270.0" layoutY="190.0" />
       <TextField fx:id="txfAcceptPrice" layoutX="270.0" layoutY="240.0" />
       <Label layoutX="140.0" layoutY="45.0" text="Choose Product" />
@@ -17,7 +16,9 @@
       <Label layoutX="140.0" layoutY="145.0" text="End date" />
       <Label layoutX="140.0" layoutY="195.0" text="Start price" />
       <Label layoutX="140.0" layoutY="245.0" text="Accept price" />
-      <Button layoutX="478.0" layoutY="352.0" mnemonicParsing="false" text="Add Auction" onAction="#onClickAddAuction"/>
-      <ComboBox fx:id="cbChooseProduct" layoutX="270.0" layoutY="40.0" prefWidth="150.0" />
+      <Button layoutX="478.0" layoutY="352.0" mnemonicParsing="false" onAction="#onClickAddAuction" text="Add Auction" />
+      <ComboBox fx:id="cbChooseProduct" layoutX="270.0" layoutY="40.0" prefHeight="27.0" prefWidth="167.0" />
+      <DatePicker fx:id="dpStartDate" layoutX="270.0" layoutY="90.0" prefHeight="27.0" prefWidth="167.0" />
+      <DatePicker fx:id="dpEndDate" layoutX="270.0" layoutY="140.0" prefHeight="27.0" prefWidth="167.0" />
    </children>
 </Pane>

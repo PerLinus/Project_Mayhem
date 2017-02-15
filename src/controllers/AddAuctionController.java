@@ -6,17 +6,23 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import models.Product;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
 public class AddAuctionController {
+
     @FXML
-    private TextField txfStartDate, txfEndDate, txfStartPrice, txfAcceptPrice;
+    private DatePicker dpStartDate, dpEndDate;
+
+    @FXML
+    private TextField txfStartPrice, txfAcceptPrice;
     @FXML
     private ComboBox cbChooseProduct;
 
@@ -55,8 +61,12 @@ public class AddAuctionController {
 
     public void onClickAddAuction(ActionEvent actionEvent) {
 
-        String startDate = txfStartDate.getText();
-        String endDate = txfEndDate.getText();
+     //   String startDate = txfStartDate.getText();
+     //   String endDate = txfEndDate.getText();
+
+        LocalDate startDate = dpStartDate.getValue();
+        LocalDate endDate = dpEndDate.getValue();
+
         String startPrice = txfStartPrice.getText();
         String acceptPrice = txfAcceptPrice.getText();
         Product selectedProduct = (Product) cbChooseProduct.getSelectionModel().getSelectedItem();
@@ -65,8 +75,8 @@ public class AddAuctionController {
             try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project_Mayhem", "root", "root")) {
                 try (PreparedStatement pstm = connection.prepareStatement("INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price) VALUES (?,?,?,?,?)")) {
                     pstm.setInt(1, selectedProduct.getProductID());
-                    pstm.setString(2, startDate);
-                    pstm.setString(3, endDate);
+                    pstm.setDate(2, Date.valueOf(startDate));
+                    pstm.setDate(3, Date.valueOf(endDate));
                     pstm.setString(4, startPrice);
                     pstm.setString(5, acceptPrice);
 
@@ -92,8 +102,9 @@ public class AddAuctionController {
         ObservableList<Product> observableList = FXCollections.observableArrayList(productList);
         cbChooseProduct.setItems(observableList);
         cbChooseProduct.getSelectionModel().selectFirst();
-        txfStartDate.clear();
-        txfEndDate.clear();
+
+        dpStartDate.setValue(null);
+        dpEndDate.setValue(null);
         txfStartPrice.clear();
         txfAcceptPrice.clear();
     }
