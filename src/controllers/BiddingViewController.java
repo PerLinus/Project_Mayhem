@@ -4,22 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import models.Auction;
-import models.BidOnAuction;
-import models.CommissionForecast;
-import models.CommissionPerMonth;
+import models.*;
 
-import java.awt.*;
-import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 import java.util.List;
@@ -34,12 +25,17 @@ public class BiddingViewController {
     @FXML
     private TableColumn tcProductName, tcSupplier, tcHighestBid, tcAcceptPrice;
     @FXML
-    private TextField txfSearchWord;
+    private TextField txfSearchWord, txfBid;
+    @FXML
+    private ComboBox cbCustomer;
 
     private List<BidOnAuction> auctionsList = new ArrayList<>();
+    private List<Customer> customerList = new ArrayList<>();
 
     public void initialize(){
         loadAllAuctions();
+        loadAllCustomers();
+
     }
 
     private void loadAllAuctions() {
@@ -54,8 +50,10 @@ public class BiddingViewController {
                         String supplierName = resultSet.getString("Company_Name");
                         double highestBid = resultSet.getDouble("MaxBid");
                         double acceptPrice = resultSet.getDouble("Accept_Price");
+                        int auctionID = resultSet.getInt("Auction_ID");
 
-                        auctionsList.add(new BidOnAuction(productName, supplierName, highestBid, acceptPrice));
+
+                        auctionsList.add(new BidOnAuction(productName, supplierName, auctionID, highestBid, acceptPrice));
 
                         ObservableList<BidOnAuction> list = FXCollections.observableArrayList(auctionsList);
                         tcProductName.setCellValueFactory(new PropertyValueFactory<BidOnAuction, String >("productName"));
@@ -71,7 +69,31 @@ public class BiddingViewController {
         }
     }
 
+    public void loadAllCustomers(){
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project_Mayhem?useSSL=false", "root", "root")) {
 
+            try (Statement statement = connection.createStatement()) {
+
+                try (ResultSet resultSet = statement.executeQuery("SELECT Customer.First_Name, Customer.Last_Name, Customer.Customer_ID FROM Customer;")) {
+
+                    while(resultSet.next()){
+                        String firstName = resultSet.getString("First_Name");
+                        String lastName = resultSet.getString("Last_Name");
+                        int customerID = resultSet.getInt("Customer_ID");
+
+                        customerList.add(new Customer(customerID, firstName, lastName));
+
+                        ObservableList<Customer> observableCustomerList = FXCollections.observableList(customerList);
+                        cbCustomer.setItems(observableCustomerList);
+                        cbCustomer.getSelectionModel().selectFirst();
+                    }
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void onClicksearch(ActionEvent actionEvent) {
 
@@ -79,5 +101,24 @@ public class BiddingViewController {
 
     public void placeBid(ActionEvent actionEvent) {
 
+        Customer choosenCustomer = (Customer) cbCustomer.getSelectionModel().getSelectedItem();
+        BidOnAuction choosenAuction = (BidOnAuction) twAuctionList.getSelectionModel().getSelectedItem();
+        int customerID = choosenCustomer.getCustomerID();
+        int auctionID = choosenAuction.getAuctionID();
+        double bid = Double.parseDouble(txfBid.getText());
+
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project_Mayhem?useSSL=false", "root", "root")) {
+        //    try (CallableStatement callableStatement = connection.prepareCall("{CALL Place_Bid(?,?,?);}")) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement(" INSERT INTO Customer_Bid (Customer_ID, Auction_ID, Bid) VALUES (?,?,?);")) {
+                preparedStatement.setInt(1, customerID);
+                preparedStatement.setInt(2, auctionID);
+                preparedStatement.setDouble(3, bid);
+                preparedStatement.execute();
+            }
+          //  }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

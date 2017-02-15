@@ -71,7 +71,7 @@ CREATE TABLE Customer_Bid
     Customer_ID INT NOT NULL,
     Auction_ID INT NOT NULL,
     Bid DOUBLE UNSIGNED NOT NULL,
-    Bid_Date DATETIME NOT NULL,
+    Bid_Date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     FOREIGN KEY (Auction_ID) REFERENCES Auction(Auction_ID),
     FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
@@ -324,12 +324,13 @@ AS
     Product.Product_Name,
     Supplier.Company_Name,
     MAX(Customer_Bid.Bid) AS MaxBid,
-    Auction.Accept_Price
+    Auction.Accept_Price,
+    Auction.Auction_ID
   FROM
     Product
     INNER JOIN Supplier ON Product.Supplier_ID = Supplier.Supplier_ID
     INNER JOIN Auction ON Product.Product_ID = Auction.Product_ID
     INNER JOIN Customer_Bid ON Auction.Auction_ID = Customer_Bid.Auction_ID
-  GROUP BY Product.Product_Name, Supplier.Company_Name, Auction.Accept_Price
+  GROUP BY Product.Product_Name, Supplier.Company_Name, Auction.Accept_Price, Auction.Auction_ID
   ORDER BY Product_Name
 ;

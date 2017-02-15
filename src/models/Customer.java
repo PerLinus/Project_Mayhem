@@ -3,6 +3,7 @@ package models;
 
 public class Customer {
 
+    private String fullName;
     private int customerID;
     private String firstName;
     private String lastName;
@@ -11,6 +12,12 @@ public class Customer {
     private String address;
     private String city;
     private String zipCode;
+
+    public Customer(int customerID, String firstName, String lastName) {
+        this.customerID = customerID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public Customer(int customerID, String firstName, String lastName, String phoneNumber, String eMail, String address, String city, String zipCode) {
         this.customerID = customerID;
@@ -89,7 +96,12 @@ public class Customer {
 
     @Override
     public String toString() {
-        return firstName + " " + lastName;
+        return firstName + " " + lastName + " " + customerID;
+    }
+
+    public String getFullName() {
+        return fullName;
     }
 }
+
 
