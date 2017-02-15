@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import models.Product;
@@ -59,6 +60,7 @@ public class AddAuctionController {
         String startPrice = txfStartPrice.getText();
         String acceptPrice = txfAcceptPrice.getText();
         Product selectedProduct = (Product) cbChooseProduct.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         try {
             try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project_Mayhem", "root", "root")) {
                 try (PreparedStatement pstm = connection.prepareStatement("INSERT INTO Auction(Product_ID, Start_Date, End_Date, Start_Price, Accept_Price) VALUES (?,?,?,?,?)")) {
@@ -69,12 +71,21 @@ public class AddAuctionController {
                     pstm.setString(5, acceptPrice);
 
                     pstm.execute();
+                    alert.setTitle("New auction added");
+                    alert.setContentText("The auction is sucessfully added to database.");
+                    alert.showAndWait();
+                    alert.close();
                 }
 
             }
 
         }catch (Exception e){
             e.printStackTrace();
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setTitle("Database error!");
+            error.setContentText("Auction could not be added. Contact support!");
+            error.showAndWait();
+            error.close();
         }
         productList.clear();
         loadProductList();
