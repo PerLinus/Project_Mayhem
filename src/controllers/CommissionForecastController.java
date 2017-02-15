@@ -21,11 +21,6 @@ public class CommissionForecastController {
 
     List<CommissionForecast> commissionForecastList = new ArrayList<>();
 
-    /**
-    @FXML
-    private TextField txfFromDate, txfToDate;
-    */
-
     @FXML
     private DatePicker dpFromDate, dpToDate;
 
