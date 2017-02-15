@@ -295,6 +295,7 @@ FOR EACH ROW
 
 DELIMITER ;
 
+
 -- Vad den totala provisionen är per månad.
 DROP VIEW IF EXISTS Commission_per_month_view;
 
