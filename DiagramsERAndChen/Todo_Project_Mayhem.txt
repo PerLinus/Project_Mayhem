@@ -21,5 +21,4 @@ KLAR - Add auction uppdateras efter upplägg av auction på produkt.
 
 - Ta bort toString där det inte behövs och fundera på getters and setters
 
-- Refactor names.
-
+- Refactor names
