@@ -17,4 +17,5 @@ KLAR - Kolla alla datatyper. Typ double istället för Double. /
 - Refactor names.
 - Korrigera ER och relation - Micke
 - Färdiga Datum istället för TextField
+test
 
