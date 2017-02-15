@@ -5,21 +5,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddSupplierController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddSupplierController">
    <children>
-      <TextField fx:id="txfCompanyName" layoutX="250.0" layoutY="20.0"/>
+      <TextField fx:id="txfCompanyName" layoutX="250.0" layoutY="20.0" />
       <TextField fx:id="txfAddress" layoutX="250.0" layoutY="70.0" />
       <TextField fx:id="txfZipCode" layoutX="250.0" layoutY="120.0" />
       <TextField fx:id="txfCity" layoutX="250.0" layoutY="170.0" />
       <TextField fx:id="txfPhoneNumber" layoutX="250.0" layoutY="220.0" />
       <TextField fx:id="txfEmail" layoutX="250.0" layoutY="270.0" />
       <Label layoutX="120.0" layoutY="25.0" text="Company name" />
-      <Label layoutX="120.0" layoutY="75.0" text="Address"/>
+      <Label layoutX="120.0" layoutY="75.0" text="Address" />
       <Label layoutX="120.0" layoutY="125.0" text="Zipcode" />
       <Label layoutX="120.0" layoutY="175.0" text="City" />
       <Label layoutX="120.0" layoutY="225.0" text="Phonenumber" />
       <Label layoutX="120.0" layoutY="275.0" text="E-mail" />
-      <Button onAction="#onClickAddSupplier" layoutX="458.0" layoutY="332.0" mnemonicParsing="false" text="Add Supplier" />
+      <Button layoutX="458.0" layoutY="332.0" mnemonicParsing="false" onAction="#onClickAddSupplier" text="Add Supplier" />
    </children>
 </Pane>

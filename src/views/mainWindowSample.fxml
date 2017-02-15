@@ -7,30 +7,30 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainWindowController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainWindowController">
    <children>
       <HBox>
          <children>
             <MenuBar>
               <menus>
-                <Menu mnemonicParsing="false" text="Add" >
+                <Menu mnemonicParsing="false" text="Add">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Add Supplier" onAction="#openAddSupplier"/>
-                        <MenuItem mnemonicParsing="false" text="Add Customer" onAction="#openAddCustomer" />
-                        <MenuItem mnemonicParsing="false" text="Add Product" onAction="#openAddProduct"/>
-                        <MenuItem mnemonicParsing="false" text="Add Auction" onAction="#openAddAuction"/>
+                    <MenuItem mnemonicParsing="false" onAction="#openAddSupplier" text="Add Supplier" />
+                        <MenuItem mnemonicParsing="false" onAction="#openAddCustomer" text="Add Customer" />
+                        <MenuItem mnemonicParsing="false" onAction="#openAddProduct" text="Add Product" />
+                        <MenuItem mnemonicParsing="false" onAction="#openAddAuction" text="Add Auction" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="View">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Ongoing Auctions" onAction="#openOngoingAuctions" />
+                    <MenuItem mnemonicParsing="false" onAction="#openOngoingAuctions" text="Ongoing Auctions" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Reports">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Commission Forecast" onAction="#openCommissonForecast" />
-                        <MenuItem mnemonicParsing="false" text="Customer Purchase List" onAction="#openCustomerPurchaseList"/>
-                        <MenuItem mnemonicParsing="false" text="Earned Commission" onAction="#openCommissionPerMonthList"/>
+                    <MenuItem mnemonicParsing="false" onAction="#openCommissonForecast" text="Commission Forecast" />
+                        <MenuItem mnemonicParsing="false" onAction="#openCustomerPurchaseList" text="Customer Purchase List" />
+                        <MenuItem mnemonicParsing="false" onAction="#openCommissionPerMonthList" text="Earned Commission" />
                   </items>
                 </Menu>
               </menus>

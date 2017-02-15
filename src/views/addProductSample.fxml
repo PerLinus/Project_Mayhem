@@ -7,12 +7,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddProductController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddProductController">
    <children>
       <TextField fx:id="txfProductName" layoutX="260.0" layoutY="80.0" />
-      <TextField fx:id="txfCommission" layoutX="260.0" layoutY="130.0" promptText="ex.10 "/>
+      <TextField fx:id="txfCommission" layoutX="260.0" layoutY="130.0" promptText="ex.10 " />
       <TextArea fx:id="txfDescription" layoutX="260.0" layoutY="180.0" prefHeight="120.0" prefWidth="185.0" />
-      <Button layoutX="468.0" layoutY="342.0" mnemonicParsing="false" text="Add Product" onAction="#onClickAddProduct" />
+      <Button layoutX="468.0" layoutY="342.0" mnemonicParsing="false" onAction="#onClickAddProduct" text="Add Product" />
       <Label layoutX="130.0" layoutY="35.0" text="Choose Supplier" />
       <Label layoutX="130.0" layoutY="85.0" text="Product name" />
       <Label layoutX="130.0" layoutY="135.0" text="Commission(%)" />
