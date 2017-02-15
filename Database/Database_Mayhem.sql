@@ -307,7 +307,6 @@ GROUP BY Year, Month, Commission
 ORDER BY Year, Month;
 
 -- View för tab ongoing auctions
-
 CREATE VIEW Ongoing_auctions AS
 
   SELECT Product.Product_Name, Customer_Bid.Bid, Customer_Bid.Bid_Date, Auction.Auction_ID, Customer.First_Name, Customer.Last_Name
