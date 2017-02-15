@@ -9,8 +9,7 @@ KLAR - GROUP BY i alla listor som inte funkar på mac - Markus
 KLAR - Ändra hur vi lägger till commission. Även promptText - Markus
 KLAR - Commission Forecast. formatera så det står kr i commission och avrunda? Samma i Customer Purchase List. - Oswald/Micke
 KLAR - Korrigera ER- och relationsdiagram - Micke
-
-- Färdiga Datum istället för TextField - Markus
+KLAR - Färdiga Datum istället för TextField - Markus
 
 - Option Pane funktion Confrim msgs - Ola
 
