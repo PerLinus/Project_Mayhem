@@ -78,7 +78,7 @@ public class AddProductController {
                     pstm.execute();
 
                     alert.setTitle("Product added");
-                    alert.setContentText("Your product is sucessfully added to database");
+                    alert.setContentText(txfProductName.getText() + " is sucessfully added to database");
                     alert.showAndWait();
                     alert.close();
                 }
@@ -87,7 +87,7 @@ public class AddProductController {
                 e.printStackTrace();
                 Alert error = new Alert(Alert.AlertType.ERROR);
                 error.setTitle("Product error!");
-                error.setContentText("Your product could not be added. Contact support.");
+                error.setContentText(txfProductName.getText() + " could not be added. Contact support.");
                 error.showAndWait();
                 error.close();
             }

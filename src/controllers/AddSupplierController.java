@@ -45,7 +45,7 @@ public class AddSupplierController {
                         pstm.execute();
 
                         alert.setTitle("Supplier added");
-                        alert.setContentText("The supplier is sucessfully added to database");
+                        alert.setContentText(txfCompanyName.getText() + " is sucessfully added to database");
                         alert.showAndWait();
                         alert.close();
                     }
@@ -55,7 +55,7 @@ public class AddSupplierController {
                 e.printStackTrace();
                 Alert error = new Alert(Alert.AlertType.ERROR);
                 error.setTitle("Adding Supplier failed!");
-                error.setContentText("The supplier could not be added. Contact support.");
+                error.setContentText(txfCompanyName.getText() + " could not be added. Contact support.");
                 error.showAndWait();
                 error.close();
             }

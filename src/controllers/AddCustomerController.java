@@ -44,7 +44,7 @@ public class AddCustomerController {
                     pstm.execute();
 
                     alert.setTitle("New customer added");
-                    alert.setContentText("The customer is sucessfully added to database");
+                    alert.setContentText("Customer "+txfFirstName.getText()+" "+txfLastName.getText()+" is sucessfully added to database");
                     alert.showAndWait();
                     alert.close();
 
@@ -54,7 +54,7 @@ public class AddCustomerController {
                 e.printStackTrace();
                 Alert error = new Alert(Alert.AlertType.ERROR);
                 error.setTitle("Database error!");
-                error.setContentText("Customer could not be added. Contact support!");
+                error.setContentText("Customer "+txfFirstName.getText()+" "+txfLastName.getText()+" could not be added. Contact support!");
                 error.showAndWait();
                 error.close();
             }
