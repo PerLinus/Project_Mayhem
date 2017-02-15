@@ -9,6 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.Auction;
+import models.BidOnAuction;
 import models.CommissionForecast;
 import models.CommissionPerMonth;
 
@@ -20,7 +21,7 @@ import java.util.List;
 /**
  * Created by MacsMac on 2017-02-14.
  */
-public class UserViewController {
+public class BiddingViewController {
 
     @FXML
     private TableView twAuctionList;
@@ -29,7 +30,7 @@ public class UserViewController {
     @FXML
     private TextField txfSearchWord;
 
-    private List<Auction> auctionsList = new ArrayList<>();
+    private List<BidOnAuction> auctionsList = new ArrayList<>();
 
     public void initialize(){
         loadAllAuctions();
@@ -40,16 +41,22 @@ public class UserViewController {
 
             try (Statement statement = connection.createStatement()) {
 
-                try (ResultSet resultSet = statement.executeQuery("SELECT * FROM Ongoing_Auctions")) {
+                try (ResultSet resultSet = statement.executeQuery("SELECT * FROM bidding_view")) {
 
                     while (resultSet.next()) {
-                        String auctionID = resultSet.getString("Product_Name");
-                        double bid = resultSet.getDouble("Bid");
-                        double commission = resultSet.getDouble("Commission");
+                        String productName = resultSet.getString("Product_Name");
+                        String supplierName = resultSet.getString("Company_Name");
+                        double highestBid = resultSet.getDouble("MaxBid");
+                        double acceptPrice = resultSet.getDouble("Accept_Price");
 
+                        auctionsList.add(new BidOnAuction(productName, supplierName, highestBid, acceptPrice));
 
-                        //auctionsList.add(new Auction());
-
+                        ObservableList<BidOnAuction> list = FXCollections.observableArrayList(auctionsList);
+                        tcProductName.setCellValueFactory(new PropertyValueFactory<BidOnAuction, String >("productName"));
+                        tcSupplier.setCellValueFactory(new PropertyValueFactory<BidOnAuction, String >("supplierName"));
+                        tcHighestBid.setCellValueFactory(new PropertyValueFactory<BidOnAuction, Double >("highestBid"));
+                        tcAcceptPrice.setCellValueFactory(new PropertyValueFactory<BidOnAuction, Double >("acceptPrice"));
+                        twAuctionList.setItems(list);
                     }
                 }
             }
