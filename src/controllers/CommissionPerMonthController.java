@@ -38,7 +38,7 @@ public class CommissionPerMonthController {
 
             try (Statement statement = connection.createStatement()) {
 
-                try (ResultSet resultSet = statement.executeQuery("SELECT * FROM Commission_Per_Month_View")) {
+                try (ResultSet resultSet = statement.executeQuery("SELECT * FROM Commission_per_month_view")) {
 
                     while (resultSet.next()) {
                         String year = resultSet.getString("Year");

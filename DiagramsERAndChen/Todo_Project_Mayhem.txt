@@ -1,18 +1,27 @@
 Todo Project Mayhem
 
-- Option Pane funktion Confrim msgs.
-- Fixa ordning på textfields /KLAR
-- Fixa est_auction_report /KLAR
+KLAR - Fixa ordning på textfields
+KLAR - Fixa est_auction_report
+KLAR - Korrigera datumfält i Add auction GUI /
+KLAR - Kolla alla datatyper. Typ double istället för Double. /
+KLAR - Fixa SQL-delen i inloggning - Markus
+KLAR - GROUP BY i alla listor som inte funkar på mac - Markus
+KLAR - Ändra hur vi lägger till commission. Även promptText - Markus
+
+- Färdiga Datum istället för TextField - Markus
+
+- Option Pane funktion Confrim msgs - Ola
+- PowerPoint - Ola
+
+- ändra inloggfönster. - Perez
+
+- Testa add auction.  - Linus
+
+- Commission Forecast. formatera så det står kr i commission och avrunda? Samma i Customer Purchase List. - Oswald/Micke
+- Korrigera ER och relation - Micke
+
 - Felhantering ofyllda TextField
-- Korrigera datumfält i Add auction GUI /KLAR
-- PowerPoint
-- Kolla alla datatyper. Typ double istället för Double. /KLAR
 - Ta bort toString där det inte behövs och fundera på getters and setters
-- Fixa SQL-delen i inloggning
-- GROUP BY i alla listor som inte funkar på mac
-- Ta bort inloggfönster.
-- Ändra hur vi lägger till commission.
-- Testa add auction.
-- Commission Forecast. formatera så det står kr i commission och avrunda? Samma i Customer Purchase List.
 - Refactor names.
-- Korrigera ER och relation
+test
+

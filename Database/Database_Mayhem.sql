@@ -303,11 +303,10 @@ AS
 
 SELECT YEAR(Auction_History.Date_Sold) AS Year, MONTHNAME(Auction_History.Date_Sold) AS Month, SUM(Product.Commission * Auction_History.Final_Bid) AS Commission FROM Product
   INNER JOIN Auction_History ON product.Product_ID = auction_history.Product_ID
-GROUP BY Month
+GROUP BY Year, Month, Commission
 ORDER BY Year, Month;
 
 -- View för tab ongoing auctions
-
 CREATE VIEW Ongoing_auctions AS
 
   SELECT Product.Product_Name, Customer_Bid.Bid, Customer_Bid.Bid_Date, Auction.Auction_ID, Customer.First_Name, Customer.Last_Name

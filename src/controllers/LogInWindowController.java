@@ -10,8 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ServiceLoader;
 
 /**
  * Created by PereZ on 2017-02-14.
@@ -30,9 +32,10 @@ public class LogInWindowController {
 
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project_Mayhem?useSSL=false", "root", "root")) {
 
-            try (Statement statement = connection.createStatement()) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM LogIn WHERE LogIn.UserName = ?")) {
+                preparedStatement.setString(1, txfUserName.getText());
 
-                try (ResultSet result = statement.executeQuery("SELECT * FROM LogIn")) {
+                try (ResultSet result = preparedStatement.executeQuery()) {
 
                     while (result.next()) {
 
@@ -40,10 +43,9 @@ public class LogInWindowController {
                         String password = result.getString(2);
                         boolean accsess = result.getBoolean(3);
 
-                        if (userName.equals(txfUserName.getText()) && password.equals(pwfPassword.getText())){
+                        if (password.equals(pwfPassword.getText()) && userName.equals(txfUserName.getText())) {
 
-
-                            if (accsess == true){
+                            if (accsess == true) {
 
                                 try {
                                     Parent root = FXMLLoader.load(getClass().getResource("../views/mainWindowSample.fxml"));
@@ -53,13 +55,10 @@ public class LogInWindowController {
                                     stage.setResizable(false);
                                     stage.initModality(Modality.APPLICATION_MODAL);
                                     stage.show();
-
-
-                                }catch (Exception e) {
+                                } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-
-                            }else {
+                            } else {
                                 try {
                                     Parent root = FXMLLoader.load(getClass().getResource("../views/userViewSample.fxml"));
                                     Stage stage = new Stage();
@@ -72,7 +71,6 @@ public class LogInWindowController {
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
-
                             }
                         }
                     }

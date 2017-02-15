@@ -1,5 +1,8 @@
 package models;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 /**
  * Created by Linus Nilsson on 2017-02-14.
  */
@@ -29,8 +32,8 @@ public class BidsOnCurrentAuctions {
         this.auctionID = auctionID;
     }
 
-    public double getBid() {
-        return bid;
+    public String getBid() {
+        return Math.round(bid) + " kr";
     }
 
     public void setBid(double bid) {

@@ -76,5 +76,14 @@ public class AddAuctionController {
         }catch (Exception e){
             e.printStackTrace();
         }
+        productList.clear();
+        loadProductList();
+        ObservableList<Product> observableList = FXCollections.observableArrayList(productList);
+        cbChooseProduct.setItems(observableList);
+        cbChooseProduct.getSelectionModel().selectFirst();
+        txfStartDate.clear();
+        txfEndDate.clear();
+        txfStartPrice.clear();
+        txfAcceptPrice.clear();
     }
 }
