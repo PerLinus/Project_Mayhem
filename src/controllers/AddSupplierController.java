@@ -57,6 +57,12 @@ public class AddSupplierController {
             error.showAndWait();
             error.close();
         }
+        txfCompanyName.clear();
+        txfAddress.clear();
+        txfZipCode.clear();
+        txfCity.clear();
+        txfPhoneNumber.clear();
+        txfEmail.clear();
 
     }
 }

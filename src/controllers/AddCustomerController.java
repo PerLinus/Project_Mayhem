@@ -57,5 +57,12 @@ public class AddCustomerController {
             error.close();
         }
 
+        txfFirstName.clear();
+        txfLastName.clear();
+        txfPhoneNumber.clear();
+        txfEmail.clear();
+        txfAddress.clear();
+        txfCity.clear();
+        txfZipCode.clear();
     }
 }

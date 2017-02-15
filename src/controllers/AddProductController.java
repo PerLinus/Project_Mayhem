@@ -90,6 +90,9 @@ public class AddProductController {
             error.showAndWait();
             error.close();
         }
+        txfProductName.clear();
+        txfCommission.clear();
+        txfDescription.clear();
     }
 }
 

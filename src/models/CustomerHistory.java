@@ -41,8 +41,8 @@ public class CustomerHistory {
         this.lastName = lastName;
     }
 
-    public double getTotalPurchase() {
-        return totalPurchase;
+    public String getTotalPurchase() {
+        return Math.round(totalPurchase) + " kr";
     }
 
     public void setTotalPurchase(double totalPurchase) {
