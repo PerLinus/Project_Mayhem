@@ -6,7 +6,7 @@ Todo Project Mayhem
 - Felhantering ofyllda TextField
 - Korrigera datumfält i Add auction GUI /KLAR
 - PowerPoint
-- Kolla alla datatyper. Typ double istället för Double.
+- Kolla alla datatyper. Typ double istället för Double. /KLAR
 - Ta bort toString där det inte behövs och fundera på getters and setters
 - Fixa SQL-delen i inloggning
 - GROUP BY i alla listor som inte funkar på mac
@@ -15,3 +15,4 @@ Todo Project Mayhem
 - Testa add auction.
 - Commission Forecast. formatera så det står kr i commission och avrunda? Samma i Customer Purchase List.
 - Refactor names.
+- Korrigera ER och relation
