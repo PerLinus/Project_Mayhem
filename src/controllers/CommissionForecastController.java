@@ -33,6 +33,8 @@ public class CommissionForecastController {
 
     public void onClickGetForecast(ActionEvent actionEvent) {
 
+        commissionForecastList.clear();
+
         LocalDate startDate = dpFromDate.getValue();
         LocalDate endDate = dpToDate.getValue();
 
