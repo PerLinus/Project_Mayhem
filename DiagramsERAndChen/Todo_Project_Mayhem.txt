@@ -1,15 +1,15 @@
 Todo Project Mayhem
 
-- Option Pane funktion Confrim msgs - Ola
 KLAR - Fixa ordning på textfields
 KLAR - Fixa est_auction_report
-- Felhantering ofyllda TextField
 KLAR - Korrigera datumfält i Add auction GUI /
-- PowerPoint - Ola
 KLAR - Kolla alla datatyper. Typ double istället för Double. /
-- Ta bort toString där det inte behövs och fundera på getters and setters
 KLAR - Fixa SQL-delen i inloggning - Markus
-- GROUP BY i alla listor som inte funkar på mac - Markus
+KLAR - GROUP BY i alla listor som inte funkar på mac - Markus
+- Option Pane funktion Confrim msgs - Ola
+- Felhantering ofyllda TextField
+- PowerPoint - Ola
+- Ta bort toString där det inte behövs och fundera på getters and setters
 - ändra inloggfönster. - Perez
 - Ändra hur vi lägger till commission. Även promptText
 - Testa add auction.  - Linus
