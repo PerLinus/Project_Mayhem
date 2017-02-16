@@ -13,6 +13,7 @@ KLAR - Färdiga Datum istället för TextField - Markus
 KLAR - Add auction uppdateras efter upplägg av auction på produkt.
 KLAR - Felhantering ofyllda TextField
 KLAR - Option Pane funktion Confirm msgs
+
 - PowerPoint - Ola
 
 - ändra inloggfönster. - Perez
