@@ -409,6 +409,7 @@ CREATE VIEW Ongoing_auctions AS
     INNER JOIN Product ON Auction.Product_ID = Product.Product_ID
   ORDER BY Customer_Bid.Bid DESC;
 
+-- For not admin window
 DROP VIEW IF EXISTS bidding_view;
 CREATE VIEW bidding_view
 AS
@@ -425,3 +426,4 @@ AS
     INNER JOIN Customer_Bid ON Auction.Auction_ID = Customer_Bid.Auction_ID
   GROUP BY Product.Product_Name, Supplier.Company_Name, Auction.Accept_Price, Auction.Auction_ID
   ORDER BY Product_Name;
+
