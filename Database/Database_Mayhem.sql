@@ -359,15 +359,7 @@ FOR EACH ROW
         FROM auction
           INNER JOIN customer_bid ON new.Auction_ID = auction.Auction_ID
         WHERE new.Bid >= auction.Accept_Price
-        GROUP BY auction.Auction_ID,
-          auction.Product_ID,
-          customer_bid.Customer_ID,
-          MaxBid,
-      customer_bid.Bid_Date,
-      auction.Start_Date,
-      auction.End_Date,
-      auction.Start_Price,
-      Accept_Price;
+        GROUP BY auction.Auction_ID;
 
       -- DELETE FROM auction WHERE auction.Auction_ID IN (SELECT auction_history.Auction_ID FROM auction_history);
 
