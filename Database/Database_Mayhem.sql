@@ -361,9 +361,11 @@ FOR EACH ROW
         WHERE new.Bid >= auction.Accept_Price
         GROUP BY auction.Auction_ID;
 
-      -- DELETE FROM auction WHERE auction.Auction_ID IN (SELECT auction_history.Auction_ID FROM auction_history);
+
 
     END IF;
+
+    DELETE FROM auction WHERE auction.Auction_ID IN (SELECT auction_history.Auction_ID FROM auction_history);
 
   END //
 
