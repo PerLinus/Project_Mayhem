@@ -369,7 +369,7 @@ FOR EACH ROW
       auction.Start_Price,
       Accept_Price;
 
-      DELETE FROM auction WHERE auction.Auction_ID IN (SELECT auction_history.Auction_ID FROM auction_history);
+      -- DELETE FROM auction WHERE auction.Auction_ID IN (SELECT auction_history.Auction_ID FROM auction_history);
 
     END IF;
 
