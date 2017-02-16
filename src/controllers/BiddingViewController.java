@@ -124,6 +124,6 @@ public class BiddingViewController {
         }
         auctionsList.clear();
         loadAllAuctions();
-
+        txfBid.clear();
     }
 }
