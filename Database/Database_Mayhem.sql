@@ -49,6 +49,7 @@ CREATE TABLE Auction
   Start_Price  DOUBLE UNSIGNED NOT NULL,
   Accept_Price DOUBLE UNSIGNED NOT NULL,
   FOREIGN KEY (Product_ID) REFERENCES Product (Product_ID)
+    ON DELETE CASCADE
 );
 ALTER TABLE `Auction`
   AUTO_INCREMENT = 300;
@@ -75,8 +76,9 @@ CREATE TABLE Customer_Bid
   Auction_ID  INT                                NOT NULL,
   Bid         DOUBLE UNSIGNED                    NOT NULL,
   Bid_Date    DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
-  FOREIGN KEY (Auction_ID) REFERENCES Auction (Auction_ID),
+  FOREIGN KEY (Auction_ID) REFERENCES Auction (Auction_ID) ON DELETE CASCADE,
   FOREIGN KEY (Customer_ID) REFERENCES Customer (Customer_ID)
+  ON DELETE CASCADE
 );
 ALTER TABLE `Customer_Bid`
   AUTO_INCREMENT = 400;
@@ -358,6 +360,8 @@ FOR EACH ROW
           INNER JOIN customer_bid ON new.Auction_ID = auction.Auction_ID
         WHERE new.Bid >= auction.Accept_Price
         GROUP BY auction.Auction_ID;
+
+      DELETE FROM auction WHERE auction.Auction_ID IN (SELECT auction_history.Auction_ID FROM auction_history);
 
     END IF;
 
