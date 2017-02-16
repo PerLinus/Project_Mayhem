@@ -182,7 +182,7 @@ INSERT INTO auction_history VALUES (293, 94, 203, 25, '2016-03-05 17:19:48', '20
 INSERT INTO LogIn VALUES ('Gunnde63', 'root', TRUE);
 INSERT INTO LogIn VALUES ('admin ', 'admin', TRUE );
 INSERT INTO LogIN VALUES ('Simon', 'IloveGunnde', FALSE);
-INSERT INTO LogIn VALUES ('Employee', 'password', FALSE);
+INSERT INTO LogIn VALUES ('employee', 'password', FALSE);
 
 -- Registrera en produkt
 DROP PROCEDURE IF EXISTS Register_one_product;
