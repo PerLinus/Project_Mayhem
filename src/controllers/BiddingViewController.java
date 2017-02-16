@@ -108,17 +108,19 @@ public class BiddingViewController {
         double bid = Double.parseDouble(txfBid.getText());
 
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project_Mayhem?useSSL=false", "root", "root")) {
-        //    try (CallableStatement callableStatement = connection.prepareCall("{CALL Place_Bid(?,?,?);}")) {
+
             try (PreparedStatement preparedStatement = connection.prepareStatement(" INSERT INTO Customer_Bid (Customer_ID, Auction_ID, Bid) VALUES (?,?,?);")) {
                 preparedStatement.setInt(1, customerID);
                 preparedStatement.setInt(2, auctionID);
                 preparedStatement.setDouble(3, bid);
                 preparedStatement.execute();
             }
-          //  }
+
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
     }
 }

@@ -165,8 +165,8 @@ VALUES ('Tor', 'Odensson', '0707522222', 'Mjolnir@hammer.com', 'VikingLane4', 'V
 -- Skapa Customer_Bid
 INSERT INTO Customer_Bid (Customer_ID, Auction_ID, Bid, Bid_Date) VALUES (200, 302, '25500', '2017-02-04 19:05:37');
 INSERT INTO Customer_Bid (Customer_ID, Auction_ID, Bid, Bid_Date) VALUES (200, 303, '6500', '2017-02-03 23:24:01');
-INSERT INTO Customer_Bid (Customer_ID, Auction_ID, Bid, Bid_Date) VALUES (200, 302, '26000', '2017-02-09 07:45:05');
-INSERT INTO Customer_Bid (Customer_ID, Auction_ID, Bid, Bid_Date) VALUES (200, 303, '8000', '2017-02-09 14:36:24');
+INSERT INTO Customer_Bid (Customer_ID, Auction_ID, Bid, Bid_Date) VALUES (201, 302, '26000', '2017-02-09 07:45:05');
+INSERT INTO Customer_Bid (Customer_ID, Auction_ID, Bid, Bid_Date) VALUES (201, 303, '8000', '2017-02-09 14:36:24');
 
 -- Skapa Auction_History
 INSERT INTO Auction_History (Auction_ID, Product_ID, Customer_ID, Final_Bid, Date_Sold, Start_Date, End_Date, Start_Price, Accept_Price)
@@ -235,6 +235,7 @@ CREATE VIEW List_ongoing_auctions AS
   ORDER BY Customer_Bid.Bid DESC;
 
 -- Se budhistoriken på en viss auktion, samt vilka kunder som lagt buden
+CREATE VIEW Bids_on_auction AS
 SELECT
   Auction.Auction_ID,
   Product.Product_Name,
@@ -421,6 +422,6 @@ AS
   ORDER BY Product_Name;
 
 
-
+CREATE VIEW Products_not_on_Auction AS
 SELECT * FROM Product WHERE Product_ID NOT IN (SELECT Product_ID FROM Auction)
 AND Product_ID NOT IN (SELECT Product_ID FROM Auction_History WHERE Final_Bid > 0)
