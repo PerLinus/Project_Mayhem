@@ -412,7 +412,8 @@ AS
     Supplier.Company_Name,
     MAX(Customer_Bid.Bid) AS MaxBid,
     Auction.Accept_Price,
-    Auction.Auction_ID
+    Auction.Auction_ID,
+    Auction.Start_Price
   FROM
     Product
     INNER JOIN Supplier ON Product.Supplier_ID = Supplier.Supplier_ID

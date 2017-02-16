@@ -8,13 +8,15 @@ public class BidOnAuction {
     private int auctionID;
     private double highestBid;
     private double acceptPrice;
+    private double startPrice;
 
-    public BidOnAuction(String productName, String supplierName, int auctionID, double highestBid, double acceptPrice) {
+    public BidOnAuction(String productName, String supplierName, int auctionID, double highestBid, double acceptPrice, double startPrice) {
         this.productName = productName;
         this.supplierName = supplierName;
         this.auctionID = auctionID;
         this.highestBid = highestBid;
         this.acceptPrice = acceptPrice;
+        this.startPrice = startPrice;
     }
 
     public String getProductName() {
@@ -55,5 +57,13 @@ public class BidOnAuction {
 
     public void setAuctionID(int auctionID) {
         this.auctionID = auctionID;
+    }
+
+    public double getStartPrice() {
+        return startPrice;
+    }
+
+    public void setStartPrice(double startPrice) {
+        this.startPrice = startPrice;
     }
 }

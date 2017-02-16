@@ -13,10 +13,11 @@
       <Label layoutX="266.0" layoutY="22.0" text="Auction list" />
       <TableView fx:id="twAuctionList" layoutX="14.0" layoutY="60.0" prefHeight="326.0" prefWidth="450.0" style="-: ;">
         <columns>
-          <TableColumn fx:id="tcProductName" prefWidth="126.0" text="Product Name" />
-          <TableColumn fx:id="tcSupplier" prefWidth="122.0" text="Supplier" />
-            <TableColumn fx:id="tcHighestBid" prefWidth="93.0" text="Highest Bid" />
-            <TableColumn fx:id="tcAcceptPrice" prefWidth="108.0" text="Accept Price" />
+          <TableColumn fx:id="tcProductName" prefWidth="108.0" text="Product Name" />
+          <TableColumn fx:id="tcSupplier" prefWidth="66.0" text="Supplier" />
+            <TableColumn fx:id="tcStartPrice" prefWidth="87.0" text="Start Price" />
+            <TableColumn fx:id="tcHighestBid" prefWidth="92.0" text="Highest Bid" />
+            <TableColumn fx:id="tcAcceptPrice" prefWidth="95.0" text="Accept Price" />
         </columns>
       </TableView>
       <Button layoutX="508.0" layoutY="288.0" mnemonicParsing="false" onAction="#placeBid" text="Place Bid" />

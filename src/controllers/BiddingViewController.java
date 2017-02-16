@@ -23,7 +23,7 @@ public class BiddingViewController {
     @FXML
     private TableView twAuctionList;
     @FXML
-    private TableColumn tcProductName, tcSupplier, tcHighestBid, tcAcceptPrice;
+    private TableColumn tcProductName, tcSupplier, tcStartPrice, tcHighestBid, tcAcceptPrice;
     @FXML
     private TextField txfSearchWord, txfBid;
     @FXML
@@ -48,18 +48,20 @@ public class BiddingViewController {
                     while (resultSet.next()) {
                         String productName = resultSet.getString("Product_Name");
                         String supplierName = resultSet.getString("Company_Name");
+                        double startPrice = resultSet.getDouble("Start_Price");
                         double highestBid = resultSet.getDouble("MaxBid");
                         double acceptPrice = resultSet.getDouble("Accept_Price");
                         int auctionID = resultSet.getInt("Auction_ID");
 
 
-                        auctionsList.add(new BidOnAuction(productName, supplierName, auctionID, highestBid, acceptPrice));
+                        auctionsList.add(new BidOnAuction(productName, supplierName, auctionID, highestBid, acceptPrice, startPrice));
 
                         ObservableList<BidOnAuction> list = FXCollections.observableArrayList(auctionsList);
                         tcProductName.setCellValueFactory(new PropertyValueFactory<BidOnAuction, String >("productName"));
                         tcSupplier.setCellValueFactory(new PropertyValueFactory<BidOnAuction, String >("supplierName"));
                         tcHighestBid.setCellValueFactory(new PropertyValueFactory<BidOnAuction, Double >("highestBid"));
                         tcAcceptPrice.setCellValueFactory(new PropertyValueFactory<BidOnAuction, Double >("acceptPrice"));
+                        tcStartPrice.setCellValueFactory(new PropertyValueFactory<BidOnAuction, Double >("startPrice"));
                         twAuctionList.setItems(list);
                     }
                 }
@@ -120,7 +122,8 @@ public class BiddingViewController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        auctionsList.clear();
+        loadAllAuctions();
 
     }
 }
