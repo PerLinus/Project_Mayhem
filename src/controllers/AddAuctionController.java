@@ -38,7 +38,8 @@ public class AddAuctionController {
     private void loadProductList() {
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Project_Mayhem", "root", "root")) {
             try (Statement statement = connection.createStatement()) {
-                try (ResultSet result = statement.executeQuery("SELECT * FROM Product WHERE Product_ID NOT IN (SELECT Product_ID FROM Auction)")) {
+                try (ResultSet result = statement.executeQuery("SELECT * FROM Product WHERE Product_ID NOT IN (SELECT Product_ID FROM Auction)\n" +
+                        "AND Product_ID NOT IN (SELECT Product_ID FROM Auction_History WHERE Final_Bid > 0)")) {
                     while (result.next()) {
                         int productID = result.getInt("Product_ID");
                         int supplierID = result.getInt("Supplier_ID");

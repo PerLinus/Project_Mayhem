@@ -421,3 +421,7 @@ AS
   GROUP BY Product.Product_Name, Supplier.Company_Name, Auction.Accept_Price, Auction.Auction_ID
   ORDER BY Product_Name;
 
+
+
+SELECT * FROM Product WHERE Product_ID NOT IN (SELECT Product_ID FROM Auction)
+AND Product_ID NOT IN (SELECT Product_ID FROM Auction_History WHERE Final_Bid > 0)
