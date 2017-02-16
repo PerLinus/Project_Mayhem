@@ -341,15 +341,14 @@ CREATE TRIGGER Sold_with_accept_price
 AFTER INSERT ON customer_bid
 FOR EACH ROW
   BEGIN
-    IF new.Bid >= (SELECT max(auction.Accept_Price)
-                   FROM auction
-                     INNER JOIN customer_bid ON auction.Auction_ID = customer_bid.Auction_ID)
+    IF new.Bid >= (SELECT auction.Accept_Price
+                   FROM auction WHERE Auction.Auction_ID = new.Auction_ID)
     THEN
       INSERT INTO auction_history (Auction_ID, Product_ID, Customer_ID, Final_Bid, Date_Sold, Start_Date, End_Date, Start_Price, Accept_Price)
         SELECT
           auction.Auction_ID,
           auction.Product_ID,
-          customer_bid.Customer_ID,
+          new.Customer_ID,
           new.Bid AS MaxBid,
           customer_bid.Bid_Date,
           auction.Start_Date,
