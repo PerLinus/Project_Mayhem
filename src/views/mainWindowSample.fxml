@@ -42,7 +42,7 @@
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </padding>
       </HBox>
-      <ImageView fitHeight="307.0" fitWidth="490.0" layoutX="101.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="550.0" fitWidth="800.0" layoutX="40.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/IMG_2386.JPG" />
          </image>
